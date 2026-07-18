@@ -21,10 +21,16 @@ import {
   FileCode2,
   Braces,
   ArrowUpRight,
+  Wrench,
+  Monitor,
+  HardDrive,
+  Shield,
+  Headphones,
+  Briefcase,
+  Calendar,
 } from "lucide-react";
 import { projects } from "./projects";
 import ProjectDetail from "./pages/ProjectDetail";
-import StarField from "./StarField";
 
 const GITHUB = "https://github.com/rafa2333";
 const LINKEDIN = "https://www.linkedin.com/in/rafael-lopes-bonfim-470817308";
@@ -47,6 +53,7 @@ const skillBlocks = [
         skills: [
           { name: "Node.js", icon: <Terminal size={16} /> },
           { name: "Express.js", icon: <Server size={16} /> },
+          { name: "Flask", icon: <Server size={16} /> },
           { name: "REST APIs", icon: <Cpu size={16} /> },
         ],
       },
@@ -61,10 +68,34 @@ const skillBlocks = [
           { name: "Python", icon: <FileCode2 size={16} /> },
           { name: "Java", icon: <Coffee size={16} /> },
           { name: "Kotlin", icon: <Smartphone size={16} /> },
+          { name: "C", icon: <FileCode2 size={16} /> },
           { name: "C#", icon: <FileCode2 size={16} /> },
         ],
       },
     ],
+  },
+  {
+    title: "Manutenção & Hardware",
+    subsections: [
+      {
+        label: "Manutenção",
+        skills: [
+          { name: "Manutenção Preventiva e Corretiva", icon: <Wrench size={16} /> },
+          { name: "Formatação e Instalação de S.O.", icon: <Monitor size={16} /> },
+          { name: "Remoção de Malwares", icon: <Shield size={16} /> },
+          { name: "Diagnóstico de Problemas", icon: <Headphones size={16} /> },
+        ],
+      },
+      {
+        label: "Hardware",
+        skills: [
+          { name: "Montagem de Computadores", icon: <Cpu size={16} /> },
+          { name: "Upgrades e Compatibilidade", icon: <HardDrive size={16} /> },
+          { name: "Suporte ao Cliente", icon: <Headphones size={16} /> },
+        ],
+      },
+    ],
+    
   },
   {
     title: "Gerais",
@@ -192,8 +223,6 @@ function Home() {
         style={{ transform: "translate(-50%, -50%)", top: "50%", left: "50%" }}
       />
 
-      <StarField />
-
       {/* OVERLAY */}
       <div
         onClick={() => setMenuOpen(false)}
@@ -214,7 +243,7 @@ function Home() {
           Menu
         </div>
         <nav className="flex flex-col gap-1 flex-1">
-          {["Início", "Sobre", "Competências", "Projetos", "Contato"].map(
+          {["Início", "Sobre", "Experiência", "Competências", "Projetos", "Contato"].map(
             (item) => (
               <a
                 key={item}
@@ -301,8 +330,8 @@ function Home() {
             Rafael Lopes Bonfim
           </h1>
           <h2 className="text-2xl font-light text-purple-400/80 mb-6">
-            Técnico em{" "}
-            <span className="text-purple-400 font-semibold">informática</span>
+            Estudante de{" "}
+            <span className="text-purple-400 font-semibold">Ciências da Computação</span>
           </h2>
           <div className="flex gap-4 flex-wrap justify-center md:justify-start mb-6">
             <a
@@ -370,26 +399,16 @@ function Home() {
           {/* TEXTO */}
           <div className="flex-1 flex flex-col gap-5">
             <p className="text-purple-300/80 text-sm leading-relaxed">
-              Estudante de Ciência da Computação na UNIVAP e técnico em
-              Informática, com foco em desenvolvimento de software e aplicações
-              web. Possuo experiência no desenvolvimento Full-Stack JavaScript,
-              utilizando React, Node.js, Express.js e Tailwind CSS, além de
-              conhecimento em Python, C#, Java e Kotlin.
+              Estudante de Ciência da Computação na UNIVAP e Técnico em Informática, sou focado no desenvolvimento de software e na criação de aplicações web modernas. Minha bagagem técnica inclui sólida experiência no desenvolvimento Full-Stack JavaScript, utilizando tecnologias como React, Node.js, Express.js e Tailwind CSS para construir interfaces responsivas e integradas de ponta a ponta. Além disso, possuo domínio em linguagens como Python, C#, Java e Kotlin.
             </p>
             <p className="text-purple-300/80 text-sm leading-relaxed">
-              Tenho experiência na construção de APIs REST, integração entre
-              front-end e back-end, manipulação de dados e modelagem de bancos
-              de dados relacionais e não relacionais, utilizando MySQL e
-              MongoDB. Também utilizo ferramentas como Git/GitHub e sigo boas
-              práticas de arquitetura cliente-servidor e organização de código.
+              No ecossistema de desenvolvimento, sou habituado a projetar e consumir APIs REST, realizar a modelagem e manipulação de bancos de dados relacionais e não relacionais (MySQL e MongoDB), além de aplicar boas práticas de arquitetura cliente-servidor através do controle de versão com Git e GitHub. Entre os meus projetos de destaque, desenvolvi um Sistema de Emissão de Notas de Despesas em Python, utilizando CustomTkinter para a interface gráfica e MySQL para automatizar processos administrativos complexos.
             </p>
             <p className="text-purple-300/80 text-sm leading-relaxed">
-              Como projeto de destaque, desenvolvi um Sistema de Emissão de
-              Notas de Despesas em Python, com interface gráfica utilizando
-              CustomTkinter e banco de dados MySQL, focado na automação de
-              processos administrativos. Busco oportunidades para aplicar e
-              expandir meus conhecimentos em desenvolvimento de software e
-              tecnologia.
+            Atualmente, estou aproveitando uma excelente oportunidade na área de assistência técnica para expandir meus conhecimentos práticos e adquirir novas visões de mercado. Esse desafio tem me permitido aprender e me aprofundar em áreas fundamentais que vão além do código, como a manutenção avançada de hardware e configuração de sistemas operacionais. Além disso, a rotina tem sido ideal para desenvolver habilidades essenciais de atendimento ao cliente, trabalho em equipe e coordenação de pedidos, conectando a infraestrutura física de computadores à prática profissional do dia a dia.
+            </p>
+            <p className="text-purple-300/80 text-sm leading-relaxed">
+            Com fluência em inglês e uma base sólida que une infraestrutura e engenharia de software, busco constantemente oportunidades para aplicar meu conhecimento técnico, enfrentar novos desafios e contribuir com soluções inovadoras no desenvolvimento de tecnologia.
             </p>
           </div>
 
@@ -414,6 +433,84 @@ function Home() {
 
             {/* Brilho embaixo */}
             <div className="absolute -bottom-4 w-40 h-6 bg-purple-600/30 blur-xl rounded-full" />
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIÊNCIA PROFISSIONAL */}
+      <section
+        id="experiência"
+        className="max-w-4xl mx-auto px-6 py-24 relative z-10"
+      >
+        <p className="text-[11px] tracking-[3px] uppercase text-violet-600 font-semibold mb-3">
+          Onde eu trabalhei
+        </p>
+        <h2 className="text-4xl font-bold text-purple-100 mb-12 tracking-tight">
+          Experiência <span className="text-purple-500">Profissional</span>
+        </h2>
+
+        <div className="flex flex-col gap-8">
+          {/* Goodblock Computadores */}
+          <div className="bg-purple-950/10 border border-purple-900/30 rounded-2xl p-6 backdrop-blur-sm hover:border-purple-600/40 transition-all">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-700/30 flex items-center justify-center">
+                  <Briefcase size={18} className="text-purple-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-purple-100">
+                    Estagiário em Assistência Técnica
+                  </h3>
+                  <p className="text-sm text-purple-400/80 font-medium">
+                    Goodblock Computadores
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-purple-500 font-semibold bg-purple-900/30 border border-purple-800/30 rounded-full px-4 py-1.5 w-fit">
+                <Calendar size={13} />
+                04/2026 — Atual
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
+                <div className="flex items-start gap-3">
+                  <span className="mt-1.5 w-2 h-2 rounded-full bg-purple-500 shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-purple-200 mb-1">
+                      Manutenção de Hardware e Software
+                    </p>
+                    <p className="text-sm text-purple-300/60 leading-relaxed">
+                      Realização de manutenção preventiva e corretiva em computadores e notebooks, incluindo formatação, instalação de sistemas operacionais, remoção de malwares e otimização de desempenho.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <span className="mt-1.5 w-2 h-2 rounded-full bg-purple-500 shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-purple-200 mb-1">
+                      Suporte ao Cliente
+                    </p>
+                    <p className="text-sm text-purple-300/60 leading-relaxed">
+                      Atendimento direto ao público para diagnóstico de problemas, esclarecimento de dúvidas técnicas e recomendação de soluções adequadas.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <span className="mt-1.5 w-2 h-2 rounded-full bg-purple-500 shrink-0" />
+                  <div>
+                    <p className="text-sm font-semibold text-purple-200 mb-1">
+                      Consultoria em Hardware
+                    </p>
+                    <p className="text-sm text-purple-300/60 leading-relaxed">
+                      Orientação sobre compatibilidade de peças e upgrades, auxiliando clientes na escolha de gerações de processadores, placas-mãe e outros componentes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -456,7 +553,7 @@ function Home() {
                         />
                       ))}
                     </div>
-                    {sub.label === "Front-end" && (
+                    {(sub.label === "Front-end" || sub.label === "Manutenção") && (
                       <div className="border-t border-purple-900/40 mt-5" />
                     )}
                   </div>
