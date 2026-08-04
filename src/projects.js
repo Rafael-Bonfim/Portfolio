@@ -11,19 +11,5 @@ O resultado foi uma solução personalizada que automatiza processos administrat
     github: "https://github.com/rafa2333",
     live: null,
     images: ["/images/tcc/tela-adicionar.png", "/images/tcc/nota-despesa.png"],
-  },
-  {
-    id: "portfolio",
-    title: "Portfólio",
-    shortDescription: "Desenvolvido do zero com React e Tailwind CSS.",
-    fullDescription: `Meu portfólio pessoal desenvolvido do zero para apresentar minhas habilidades e projetos de forma profissional.
-
-O projeto foi uma ótima oportunidade para aprofundar meus conhecimentos em React, componentização, roteamento com React Router e estilização com Tailwind CSS.
-
-O design foi pensado para ser elegante e minimalista, com uma paleta escura em tons de roxo que transmite seriedade e modernidade.`,
-    tags: ["React", "Tailwind CSS", "React Router"],
-    github: "https://github.com/rafa2333",
-    live: null,
-    images: ["/images/tcc/printt.png"],
-  },
+  }
 ];

@@ -323,15 +323,12 @@ function Home() {
         className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-10 pt-28 pb-50 relative z-10 max-w-5xl mx-auto"
       >
         <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
-          <p className="text-xs tracking-[2px] uppercase text-purple-500 font-semibold mb-2">
-            Olá.
-          </p>
           <h1 className="text-6xl font-extrabold leading-tight mb-3 bg-linear-to-br from-purple-100 via-purple-200 to-purple-500 bg-clip-text text-transparent tracking-tight">
             Rafael Lopes Bonfim
           </h1>
           <h2 className="text-2xl font-light text-purple-400/80 mb-6">
-            Estudante de{" "}
-            <span className="text-purple-400 font-semibold">Ciências da Computação</span>
+            <span className="text-purple-400 font-semibold">Fatec -</span>
+            {" "} DSM
           </h2>
           <div className="flex gap-4 flex-wrap justify-center md:justify-start mb-6">
             <a
@@ -399,14 +396,14 @@ function Home() {
           {/* TEXTO */}
           <div className="flex-1 flex flex-col gap-5">
             <p className="text-purple-300/80 text-sm leading-relaxed">
-              Estudante de Ciência da Computação na UNIVAP e Técnico em Informática, sou focado no desenvolvimento de software e na criação de aplicações web modernas. Minha bagagem técnica inclui sólida experiência no desenvolvimento Full-Stack JavaScript, utilizando tecnologias como React, Node.js, Express.js e Tailwind CSS para construir interfaces responsivas e integradas de ponta a ponta. Além disso, possuo domínio em linguagens como Python, C#, Java e Kotlin.
-            </p>
+              Estudante de Desenvolvimento de Software Multiplataforma na FATEC e Técnico em Informática. Possuo habilidade prática com tecnologias modernas e consolidadas no mercado, desenvolvendo aplicações integradas e responsivas de ponta a ponta. Minha abordagem profissional é voltada para a versatilidade e adaptação, com facilidade para transitar entre diferentes linguagens de programação e ferramentas essenciais para entregar o melhor resultado em cada projeto.
+              </p>
             <p className="text-purple-300/80 text-sm leading-relaxed">
-              No ecossistema de desenvolvimento, sou habituado a projetar e consumir APIs REST, realizar a modelagem e manipulação de bancos de dados relacionais e não relacionais (MySQL e MongoDB), além de aplicar boas práticas de arquitetura cliente-servidor através do controle de versão com Git e GitHub. Entre os meus projetos de destaque, desenvolvi um Sistema de Emissão de Notas de Despesas em Python, utilizando CustomTkinter para a interface gráfica e MySQL para automatizar processos administrativos complexos.
-            </p>
+              No ecossistema de desenvolvimento, sou habituado a projetar e consumir APIs REST, realizar a modelagem e manipulação de bancos de dados relacionais e não relacionais (MySQL e MongoDB), além de aplicar boas práticas de arquitetura cliente-servidor através do controle de versão com Git e GitHub. Entre os meus projetos de destaque, desenvolvi um Sistema de Emissão de Notas de Despesas em Python, utilizando CustomTkinter para a interface gráfica e MySQL para o armazenamento de dados e processos administrativos.
+              </p>
             <p className="text-purple-300/80 text-sm leading-relaxed">
-            Atualmente, estou aproveitando uma excelente oportunidade na área de assistência técnica para expandir meus conhecimentos práticos e adquirir novas visões de mercado. Esse desafio tem me permitido aprender e me aprofundar em áreas fundamentais que vão além do código, como a manutenção avançada de hardware e configuração de sistemas operacionais. Além disso, a rotina tem sido ideal para desenvolver habilidades essenciais de atendimento ao cliente, trabalho em equipe e coordenação de pedidos, conectando a infraestrutura física de computadores à prática profissional do dia a dia.
-            </p>
+            Recentemente, tive a oportunidade de trabalhar em uma assistência técnica, uma experiência fundamental para expandir meus conhecimentos práticos e adquirir novas visões de mercado. Esse desafio me permitiu consolidar hard skills importantes, como a montagem e manutenção de computadores e a configuração de sistemas operacionais. Mais do que lidar com a infraestrutura física, foi um período essencial para o desenvolvimento de fortes soft skills. Vivenciando a rotina de trabalho em equipe, aprimorei significativamente minha capacidade de comunicação com o time, a colaboração em grupo e o atendimento ao cliente, conectando a base técnica à prática e às necessidades reais do dia a dia.
+              </p>
             <p className="text-purple-300/80 text-sm leading-relaxed">
             Com fluência em inglês e uma base sólida que une infraestrutura e engenharia de software, busco constantemente oportunidades para aplicar meu conhecimento técnico, enfrentar novos desafios e contribuir com soluções inovadoras no desenvolvimento de tecnologia.
             </p>
@@ -468,7 +465,7 @@ function Home() {
               </div>
               <div className="flex items-center gap-2 text-xs text-purple-500 font-semibold bg-purple-900/30 border border-purple-800/30 rounded-full px-4 py-1.5 w-fit">
                 <Calendar size={13} />
-                04/2026 — Atual
+                04/2026 - 07/2026
               </div>
             </div>
 
