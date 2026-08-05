@@ -327,8 +327,8 @@ function Home() {
             Rafael Lopes Bonfim
           </h1>
           <h2 className="text-2xl font-light text-purple-400/80 mb-6">
-            <span className="text-purple-400 font-semibold">Fatec -</span>
-            {" "} DSM
+          DSM - {" "} 
+            <span className="text-purple-400 font-semibold">Fatec</span>
           </h2>
           <div className="flex gap-4 flex-wrap justify-center md:justify-start mb-6">
             <a
