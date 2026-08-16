@@ -11,7 +11,7 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-[#08060f] flex items-center justify-center text-purple-400">
+      <div className="min-h-screen bg-[#09090b] flex items-center justify-center text-zinc-400">
         Projeto não encontrado.
       </div>
     );
@@ -20,31 +20,30 @@ export default function ProjectDetail() {
   const hasImages = project.images && project.images.length > 0;
 
   return (
-    <div className="min-h-screen bg-[#08060f] text-purple-100 relative overflow-x-hidden">
-      {/* Ambient blobs */}
-      <div className="fixed -top-32 -left-32 w-96 h-96 rounded-full bg-purple-700 opacity-10 blur-3xl pointer-events-none z-0" />
-      <div className="fixed -bottom-40 -right-24 w-125 h-125 rounded-full bg-violet-900 opacity-10 blur-3xl pointer-events-none z-0" />
+    <div className="min-h-screen bg-[#09090b] text-zinc-100 relative overflow-x-hidden selection:bg-violet-500/20 selection:text-violet-200">
+      {/* Background Subtle Gradient Grid */}
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.08),rgba(255,255,255,0))] pointer-events-none z-0" />
 
       <div className="max-w-4xl mx-auto px-6 py-16 relative z-10">
         {/* Botão voltar */}
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-purple-400 hover:text-purple-200 transition-colors mb-12 group"
+          className="flex items-center gap-2 text-zinc-400 hover:text-zinc-100 transition-colors mb-12 group text-sm font-medium"
         >
           <ArrowLeft
-            size={18}
+            size={16}
             className="group-hover:-translate-x-1 transition-transform"
           />
-          <span className="text-sm font-medium">Voltar</span>
+          <span>Voltar para o início</span>
         </button>
 
         {/* Header do projeto */}
-        <div className="mb-10 fles justify-center">
-          <p className="text-[11px] tracking-[3px] uppercase text-violet-600 font-semibold mb-3">
+        <div className="mb-10">
+          <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
             Projeto
           </p>
           <div className="flex items-start justify-between gap-4 flex-wrap">
-            <h1 className="text-5xl font-extrabold bg-linear-to-br from-purple-100 via-purple-200 to-purple-500 bg-clip-text text-transparent tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-100">
               {project.title}
             </h1>
             <div className="flex gap-3">
@@ -53,9 +52,9 @@ export default function ProjectDetail() {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-linear-to-r from-violet-700 to-purple-500 text-white rounded-xl text-sm font-medium shadow-lg shadow-purple-900/40 hover:shadow-purple-700/50 transition-shadow"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-zinc-100 text-zinc-900 hover:bg-white rounded-xl text-sm font-medium transition-all shadow-xs"
                 >
-                  <ExternalLink size={16} /> Ver site
+                  <ExternalLink size={15} /> Ver site
                 </a>
               )}
             </div>
@@ -66,7 +65,7 @@ export default function ProjectDetail() {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-3 py-1 rounded-full bg-purple-900/40 text-purple-400 border border-purple-800/30"
+                className="text-xs font-mono px-3 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400 font-medium"
               >
                 {tag}
               </span>
@@ -79,7 +78,7 @@ export default function ProjectDetail() {
           {hasImages ? (
             <>
               {/* Imagem principal */}
-              <div className="w-full aspect-video rounded-2xl overflow-hidden border border-purple-900/30 mb-4 bg-purple-950/20">
+              <div className="w-full aspect-video rounded-2xl overflow-hidden border border-zinc-800 mb-4 bg-zinc-900/50 shadow-2xl shadow-black/80">
                 <img
                   src={project.images[activeImg]}
                   alt={`${project.title} - imagem ${activeImg + 1}`}
@@ -95,8 +94,8 @@ export default function ProjectDetail() {
                       onClick={() => setActiveImg(i)}
                       className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all ${
                         activeImg === i
-                          ? "border-purple-500 opacity-100"
-                          : "border-purple-900/30 opacity-50 hover:opacity-75"
+                          ? "border-zinc-300 opacity-100"
+                          : "border-zinc-800 opacity-50 hover:opacity-80"
                       }`}
                     >
                       <img
@@ -111,23 +110,23 @@ export default function ProjectDetail() {
             </>
           ) : (
             /* Placeholder quando não há imagens */
-            <div className="w-full aspect-video rounded-2xl border border-purple-900/30 bg-purple-950/20 flex flex-col items-center justify-center gap-3 text-purple-700">
-              <ImageOff size={40} />
+            <div className="w-full aspect-video rounded-2xl border border-zinc-800 bg-zinc-900/40 flex flex-col items-center justify-center gap-3 text-zinc-500">
+              <ImageOff size={36} />
               <p className="text-sm">
                 Adicione imagens do projeto em{" "}
-                <code className="text-purple-600">projects.js</code>
+                <code className="text-zinc-400 font-mono">projects.js</code>
               </p>
             </div>
           )}
         </div>
 
         {/* Descrição completa */}
-        <div className="bg-purple-950/10 border border-purple-900/30 rounded-2xl p-8 backdrop-blur-sm">
-          <h2 className="text-lg font-semibold text-purple-300 mb-5 flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-purple-500 inline-block" />
+        <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl p-6 sm:p-8">
+          <h2 className="text-base font-semibold text-zinc-200 mb-4 pb-3 border-b border-zinc-800/60 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
             Sobre o projeto
           </h2>
-          <div className="text-purple-300/70 text-sm leading-relaxed flex flex-col gap-4">
+          <div className="text-zinc-400 text-sm leading-relaxed flex flex-col gap-4 font-normal">
             {project.fullDescription.split("\n\n").map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}

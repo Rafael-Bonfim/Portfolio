@@ -28,12 +28,15 @@ import {
   Headphones,
   Briefcase,
   Calendar,
+  Instagram,
+  Download,
 } from "lucide-react";
 import { projects } from "./projects";
 import ProjectDetail from "./pages/ProjectDetail";
 
 const GITHUB = "https://github.com/rafa2333";
 const LINKEDIN = "https://www.linkedin.com/in/rafael-lopes-bonfim-470817308";
+const INSTAGRAM = "https://www.instagram.com/r_lopess__/";
 
 const skillBlocks = [
   {
@@ -42,19 +45,19 @@ const skillBlocks = [
       {
         label: "Front-end",
         skills: [
-          { name: "React", icon: <Layers size={16} /> },
-          { name: "HTML5 & CSS3", icon: <Globe size={16} /> },
-          { name: "JavaScript", icon: <Code2 size={16} /> },
-          { name: "Tailwind CSS", icon: <Braces size={16} /> },
+          { name: "React", icon: <Layers size={15} /> },
+          { name: "HTML5 & CSS3", icon: <Globe size={15} /> },
+          { name: "JavaScript", icon: <Code2 size={15} /> },
+          { name: "Tailwind CSS", icon: <Braces size={15} /> },
         ],
       },
       {
         label: "Back-end",
         skills: [
-          { name: "Node.js", icon: <Terminal size={16} /> },
-          { name: "Express.js", icon: <Server size={16} /> },
-          { name: "Flask", icon: <Server size={16} /> },
-          { name: "REST APIs", icon: <Cpu size={16} /> },
+          { name: "Node.js", icon: <Terminal size={15} /> },
+          { name: "Express.js", icon: <Server size={15} /> },
+          { name: "Flask", icon: <Server size={15} /> },
+          { name: "REST APIs", icon: <Cpu size={15} /> },
         ],
       },
     ],
@@ -65,11 +68,11 @@ const skillBlocks = [
       {
         label: null,
         skills: [
-          { name: "Python", icon: <FileCode2 size={16} /> },
-          { name: "Java", icon: <Coffee size={16} /> },
-          { name: "Kotlin", icon: <Smartphone size={16} /> },
-          { name: "C", icon: <FileCode2 size={16} /> },
-          { name: "C#", icon: <FileCode2 size={16} /> },
+          { name: "Python", icon: <FileCode2 size={15} /> },
+          { name: "Java", icon: <Coffee size={15} /> },
+          { name: "Kotlin", icon: <Smartphone size={15} /> },
+          { name: "C", icon: <FileCode2 size={15} /> },
+          { name: "C#", icon: <FileCode2 size={15} /> },
         ],
       },
     ],
@@ -80,22 +83,21 @@ const skillBlocks = [
       {
         label: "Manutenção",
         skills: [
-          { name: "Manutenção Preventiva e Corretiva", icon: <Wrench size={16} /> },
-          { name: "Formatação e Instalação de S.O.", icon: <Monitor size={16} /> },
-          { name: "Remoção de Malwares", icon: <Shield size={16} /> },
-          { name: "Diagnóstico de Problemas", icon: <Headphones size={16} /> },
+          { name: "Manutenção Preventiva e Corretiva", icon: <Wrench size={15} /> },
+          { name: "Formatação e Instalação de S.O.", icon: <Monitor size={15} /> },
+          { name: "Remoção de Malwares", icon: <Shield size={15} /> },
+          { name: "Diagnóstico de Problemas", icon: <Headphones size={15} /> },
         ],
       },
       {
         label: "Hardware",
         skills: [
-          { name: "Montagem de Computadores", icon: <Cpu size={16} /> },
-          { name: "Upgrades e Compatibilidade", icon: <HardDrive size={16} /> },
-          { name: "Suporte ao Cliente", icon: <Headphones size={16} /> },
+          { name: "Montagem de Computadores", icon: <Cpu size={15} /> },
+          { name: "Upgrades e Compatibilidade", icon: <HardDrive size={15} /> },
+          { name: "Suporte ao Cliente", icon: <Headphones size={15} /> },
         ],
       },
     ],
-    
   },
   {
     title: "Gerais",
@@ -103,9 +105,9 @@ const skillBlocks = [
       {
         label: null,
         skills: [
-          { name: "MySQL", icon: <Database size={16} /> },
-          { name: "MongoDB", icon: <Database size={16} /> },
-          { name: "Git & GitHub", icon: <GitBranch size={16} /> },
+          { name: "MySQL", icon: <Database size={15} /> },
+          { name: "MongoDB", icon: <Database size={15} /> },
+          { name: "Git & GitHub", icon: <GitBranch size={15} /> },
         ],
       },
     ],
@@ -114,9 +116,9 @@ const skillBlocks = [
 
 function SkillTag({ icon, name }) {
   return (
-    <div className="flex items-center gap-2 bg-purple-950/40 border border-purple-800/30 rounded-xl px-4 py-2 hover:border-purple-500/50 transition-colors">
-      <span className="text-purple-500">{icon}</span>
-      <span className="text-sm font-medium text-purple-200">{name}</span>
+    <div className="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800/80 rounded-lg px-3.5 py-2 text-zinc-300 hover:text-zinc-100 hover:border-zinc-700 hover:bg-zinc-850 transition-all text-xs sm:text-sm font-medium">
+      <span className="text-zinc-400 group-hover:text-zinc-200">{icon}</span>
+      <span>{name}</span>
     </div>
   );
 }
@@ -125,28 +127,29 @@ function ProjectCard({ id, title, shortDescription, tags }) {
   const navigate = useNavigate();
 
   return (
-    <div className="flex-1 min-w-70 bg-purple-950/10 border border-purple-900/30 rounded-2xl p-6 backdrop-blur-sm hover:border-purple-600/40 transition-all hover:-translate-y-1 flex flex-col gap-4">
-      <div className="flex items-start justify-between gap-2">
-        <h3 className="text-lg font-bold text-purple-100">{title}</h3>
-        <div className="flex gap-2 shrink-0">
-          {/* Botão ver detalhes */}
-          <button
-            onClick={() => navigate(`/projeto/${id}`)}
-            title="Ver detalhes"
-            className="text-purple-600 hover:text-purple-400 transition-colors"
-          >
-            <ArrowUpRight size={18} />
-          </button>
+    <div
+      onClick={() => navigate(`/projeto/${id}`)}
+      className="group bg-zinc-900/30 border border-zinc-800/70 hover:border-zinc-700 rounded-2xl p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-zinc-900/60"
+    >
+      <div>
+        <div className="flex items-start justify-between gap-4 mb-3">
+          <h3 className="text-lg font-semibold text-zinc-100 group-hover:text-white transition-colors">
+            {title}
+          </h3>
+          <div className="w-8 h-8 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:bg-zinc-700/80 transition-all shrink-0">
+            <ArrowUpRight size={16} />
+          </div>
         </div>
+        <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-normal">
+          {shortDescription}
+        </p>
       </div>
-      <p className="text-purple-300/60 text-sm leading-relaxed flex-1">
-        {shortDescription}
-      </p>
-      <div className="flex flex-wrap gap-2 mt-auto">
+
+      <div className="flex flex-wrap gap-2 pt-2 border-t border-zinc-800/40">
         {tags.map((tag) => (
           <span
             key={tag}
-            className="text-xs px-3 py-1 rounded-full bg-purple-900/40 text-purple-400 border border-purple-800/30"
+            className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400 font-medium"
           >
             {tag}
           </span>
@@ -163,146 +166,120 @@ function Home() {
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let blob1X = mouseX,
-      blob1Y = mouseY;
-    let blob2X = mouseX,
-      blob2Y = mouseY;
-    let animFrame;
-
-    const onMouseMove = (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    };
-
-    const animate = () => {
-      // blob1 segue rápido
-      blob1X += (mouseX - blob1X) * 0.08;
-      blob1Y += (mouseY - blob1Y) * 0.08;
-
-      // blob2 segue mais devagar (efeito de lag)
-      blob2X += (mouseX - blob2X) * 0.04;
-      blob2Y += (mouseY - blob2Y) * 0.04;
-
-      const b1 = document.getElementById("blob1");
-      const b2 = document.getElementById("blob2");
-
-      if (b1) {
-        b1.style.left = `${blob1X}px`;
-        b1.style.top = `${blob1Y}px`;
-      }
-      if (b2) {
-        b2.style.left = `${blob2X}px`;
-        b2.style.top = `${blob2Y}px`;
-      }
-
-      animFrame = requestAnimationFrame(animate);
-    };
-
-    window.addEventListener("mousemove", onMouseMove);
-    animFrame = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-      cancelAnimationFrame(animFrame);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#08060f] text-purple-100 overflow-x-hidden relative">
-      <div
-        id="blob1"
-        className="fixed w-40 h-40 rounded-full bg-purple-700 opacity-15 blur-3xl pointer-events-none z-0 transition-none"
-        style={{ transform: "translate(-50%, -50%)", top: "50%", left: "50%" }}
-      />
-      <div
-        id="blob2"
-        className="fixed w-40 h-40 rounded-full bg-violet-800 opacity-10 blur-3xl pointer-events-none z-0 transition-none"
-        style={{ transform: "translate(-50%, -50%)", top: "50%", left: "50%" }}
-      />
+    <div className="min-h-screen bg-[#09090b] text-zinc-100 overflow-x-hidden relative selection:bg-violet-500/20 selection:text-violet-200">
+      {/* Background Subtle Gradient Grid */}
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.08),rgba(255,255,255,0))] pointer-events-none z-0" />
 
       {/* OVERLAY */}
       <div
         onClick={() => setMenuOpen(false)}
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-99 transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 bg-black/70 backdrop-blur-sm z-99 transition-opacity duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       />
 
       {/* SIDEBAR */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-linear-to-b from-[#120a2a] to-[#0d0818] border-r border-purple-900/40 z-100 flex flex-col p-6 gap-8 transition-transform duration-300 ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed top-0 left-0 h-full w-72 bg-zinc-950/95 border-r border-zinc-800/80 z-100 flex flex-col p-6 gap-8 backdrop-blur-2xl transition-transform duration-300 ${menuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="self-end bg-purple-900/30 border border-purple-700/40 rounded-lg p-2 text-purple-400 hover:bg-purple-800/40 transition-colors"
-        >
-          <X size={18} />
-        </button>
-        <div className="text-xl font-bold text-purple-200 tracking-wide">
-          Menu
+        <div className="flex items-center justify-between">
+          <div className="font-mono font-semibold text-sm text-zinc-300 tracking-tight">
+            rafael.<span className="text-zinc-500">dev</span>
+          </div>
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="w-8 h-8 rounded-lg border border-zinc-800 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 transition-colors flex items-center justify-center"
+            aria-label="Fechar menu"
+          >
+            <X size={16} />
+          </button>
         </div>
-        <nav className="flex flex-col gap-1 flex-1">
-          {["Início", "Sobre", "Experiência", "Competências", "Projetos", "Contato"].map(
+
+        <nav className="flex flex-col gap-1.5 flex-1">
+          {["Início", "Experiência", "Competências", "Projetos", "Sobre", "Contato"].map(
             (item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-3 text-purple-300/80 hover:text-purple-200 hover:bg-purple-900/30 px-4 py-3 rounded-xl text-sm font-medium transition-all"
+                className="flex items-center justify-between text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/80 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all"
               >
-                <ChevronRight size={13} className="text-purple-500" />
-                {item}
+                <span>{item}</span>
+                <ChevronRight size={14} className="text-zinc-600" />
               </a>
             ),
           )}
         </nav>
-        <div className="flex gap-4 pt-4 border-t border-purple-900/30">
-          <a
-            href={GITHUB}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-purple-600 hover:text-purple-400 transition-colors"
-          >
-            <Github size={19} />
-          </a>
-          <a
-            href={LINKEDIN}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-purple-600 hover:text-purple-400 transition-colors"
-          >
-            <Linkedin size={19} />
-          </a>
-          <a
-            href="mailto:rafa.lopes.bonfim@gmail.com"
-            className="text-purple-600 hover:text-purple-400 transition-colors"
-          >
-            <Mail size={19} />
-          </a>
+
+        <div className="flex items-center justify-between pt-4 border-t border-zinc-800/80">
+          <div className="flex gap-3">
+            <a
+              href={GITHUB}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 transition-colors"
+              title="GitHub"
+            >
+              <Github size={18} />
+            </a>
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 transition-colors"
+              title="LinkedIn"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a
+              href={INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 transition-colors"
+              title="Instagram"
+            >
+              <Instagram size={18} />
+            </a>
+            <a
+              href="mailto:rafa.lopes.bonfim@gmail.com"
+              className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 transition-colors"
+              title="E-mail"
+            >
+              <Mail size={18} />
+            </a>
+          </div>
         </div>
       </aside>
 
       {/* HEADER */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 transition-all duration-300 ${scrolled ? "bg-[#08060f]/85 backdrop-blur-xl border-b border-purple-900/30" : "border-b border-transparent"}`}
+        className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 sm:px-10 py-3.5 transition-all duration-200 ${scrolled
+          ? "bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/60 shadow-xs"
+          : "border-b border-transparent bg-transparent"
+          }`}
       >
         <button
           onClick={() => setMenuOpen(true)}
-          className="bg-purple-900/20 border border-purple-700/40 rounded-xl px-3 py-2 text-purple-400 hover:bg-purple-800/30 transition-colors flex items-center"
+          className="bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 rounded-lg p-2 text-zinc-400 hover:text-zinc-100 transition-colors flex items-center"
+          aria-label="Abrir menu"
         >
-          <Menu size={19} />
+          <Menu size={18} />
         </button>
-        <div className="absolute left-1/2 -translate-x-1/2 text-lg font-bold text-purple-100 tracking-wide">
-          <span className="text-purple-500">&lt;</span>dev
-          <span className="text-purple-500">&gt;</span>
-        </div>
-        <div className="flex gap-4 items-center">
+
+        <div className="flex gap-2 items-center">
           <a
             href={GITHUB}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-purple-600 hover:text-purple-400 transition-colors"
+            className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/60 transition-colors"
+            title="GitHub"
           >
             <Github size={17} />
           </a>
@@ -310,7 +287,8 @@ function Home() {
             href={LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-purple-600 hover:text-purple-400 transition-colors"
+            className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/60 transition-colors"
+            title="LinkedIn"
           >
             <Linkedin size={17} />
           </a>
@@ -320,116 +298,48 @@ function Home() {
       {/* HERO */}
       <section
         id="início"
-        className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-10 pt-28 pb-50 relative z-10 max-w-5xl mx-auto"
+        className="min-h-[92vh] flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 px-6 sm:px-10 pt-28 pb-20 relative z-10 max-w-5xl mx-auto"
       >
         <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
-          <h1 className="text-6xl font-extrabold leading-tight mb-3 bg-linear-to-br from-purple-100 via-purple-200 to-purple-500 bg-clip-text text-transparent tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-100 leading-tight mb-3">
             Rafael Lopes Bonfim
           </h1>
-          <h2 className="text-2xl font-light text-purple-400/80 mb-6">
-          DSM - {" "} 
-            <span className="text-purple-400 font-semibold">Fatec</span>
+
+          <h2 className="text-xl sm:text-2xl font-light text-zinc-400 mb-8">
+            DSM - <span className="text-zinc-100 font-semibold">Fatec Prof. Jessen Vidal</span>
           </h2>
-          <div className="flex gap-4 flex-wrap justify-center md:justify-start mb-6">
+
+          <div className="flex gap-3 flex-wrap justify-center md:justify-start">
             <a
               href="/RafaelBonfim_PT.pdf"
               download="CV-Rafael-Lopes-Bonfim.pdf"
-              className="px-8 py-3 bg-linear-to-r from-violet-700 to-purple-500 text-white rounded-xl font-semibold text-sm shadow-lg shadow-purple-900/50 hover:shadow-purple-700/60 transition-shadow inline-flex items-center gap-2"
+              className="px-5 py-2.5 bg-zinc-100 text-zinc-900 hover:bg-white rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2 shadow-xs"
             >
-              <FileCode2 size={16} /> Baixar CV
+              <Download size={15} /> Baixar CV
             </a>
             <a
               href="#projetos"
-              className="px-8 py-3 border border-purple-700/50 text-purple-400 rounded-xl font-semibold text-sm hover:bg-purple-900/20 transition-colors"
+              className="px-5 py-2.5 bg-zinc-900/80 hover:bg-zinc-850 border border-zinc-800 hover:border-zinc-700 text-zinc-200 rounded-xl font-medium text-sm transition-all"
             >
               Ver Projetos
             </a>
             <a
               href="#contato"
-              className="px-8 py-3 border border-purple-700/50 text-purple-400 rounded-xl font-semibold text-sm hover:bg-purple-900/20 transition-colors"
+              className="px-5 py-2.5 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/40 rounded-xl font-medium text-sm transition-all"
             >
               Contato
             </a>
           </div>
         </div>
 
+        {/* Hero Photo - Clean, Frame refined */}
         <div className="relative shrink-0 flex items-center justify-center">
-          {/* Ondas irradiando para fora */}
-          <div className="absolute w-40 h-40 md:w-63 md:h-63 rounded-full border border-purple-500/30 animate-[wave_3.5s_ease-out_infinite]" />
-          <div className="absolute w-40 h-40 md:w-63 md:h-63 rounded-full border border-purple-500/20 animate-[wave_3.5s_0.8s_ease-out_infinite]" />
-          <div className="absolute w-40 h-40 md:w-63 md:h-63 rounded-full border border-purple-500/10 animate-[wave_3.5s_1.6s_ease-out_infinite]" />
-
-          {/* Brilho atrás da foto */}
-          <div className="absolute w-40 h-40 md:w-63 md:h-63 rounded-full bg-purple-600/20 blur-2xl" />
-
-          {/* Foto */}
-          <div className="relative w-40 h-40 md:w-63 md:h-63 rounded-full overflow-hidden border-2 border-purple-700/50 shadow-2xl shadow-purple-900/60 z-10">
+          <div className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/80">
             <img
               src="/rafael.jpeg"
               alt="Rafael Lopes Bonfim"
               className="w-full h-full object-cover"
             />
-          </div>
-
-          {/* Brilho embaixo */}
-          <div className="absolute -bottom-4 w-32 h-6 bg-purple-600/30 blur-xl rounded-full" />
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-          <div className="h-px w-67 bg-linear-to-r from-transparent via-purple-600 to-transparent" />
-        </div>
-      </section>
-
-      {/* SOBRE MIM */}
-      <section
-        id="sobre"
-        className="max-w-4xl mx-auto px-6 py-24 relative z-10"
-      >
-        <p className="text-[11px] tracking-[3px] uppercase text-violet-600 font-semibold mb-3">
-          Quem sou eu
-        </p>
-        <h2 className="text-4xl font-bold text-purple-100 mb-12 tracking-tight">
-          Sobre <span className="text-purple-500">Mim</span>
-        </h2>
-
-        <div className="flex flex-col md:flex-row gap-12 items-center">
-          {/* TEXTO */}
-          <div className="flex-1 flex flex-col gap-5">
-            <p className="text-purple-300/80 text-sm leading-relaxed">
-              Estudante de Desenvolvimento de Software Multiplataforma na FATEC e Técnico em Informática. Possuo habilidade prática com tecnologias modernas e consolidadas no mercado, desenvolvendo aplicações integradas e responsivas de ponta a ponta. Minha abordagem profissional é voltada para a versatilidade e adaptação, com facilidade para transitar entre diferentes linguagens de programação e ferramentas essenciais para entregar o melhor resultado em cada projeto.
-              </p>
-            <p className="text-purple-300/80 text-sm leading-relaxed">
-              No ecossistema de desenvolvimento, sou habituado a projetar e consumir APIs REST, realizar a modelagem e manipulação de bancos de dados relacionais e não relacionais (MySQL e MongoDB), além de aplicar boas práticas de arquitetura cliente-servidor através do controle de versão com Git e GitHub. Entre os meus projetos de destaque, desenvolvi um Sistema de Emissão de Notas de Despesas em Python, utilizando CustomTkinter para a interface gráfica e MySQL para o armazenamento de dados e processos administrativos.
-              </p>
-            <p className="text-purple-300/80 text-sm leading-relaxed">
-            Recentemente, tive a oportunidade de trabalhar em uma assistência técnica, uma experiência fundamental para expandir meus conhecimentos práticos e adquirir novas visões de mercado. Esse desafio me permitiu consolidar hard skills importantes, como a montagem e manutenção de computadores e a configuração de sistemas operacionais. Mais do que lidar com a infraestrutura física, foi um período essencial para o desenvolvimento de fortes soft skills. Vivenciando a rotina de trabalho em equipe, aprimorei significativamente minha capacidade de comunicação com o time, a colaboração em grupo e o atendimento ao cliente, conectando a base técnica à prática e às necessidades reais do dia a dia.
-              </p>
-            <p className="text-purple-300/80 text-sm leading-relaxed">
-            Com fluência em inglês e uma base sólida que une infraestrutura e engenharia de software, busco constantemente oportunidades para aplicar meu conhecimento técnico, enfrentar novos desafios e contribuir com soluções inovadoras no desenvolvimento de tecnologia.
-            </p>
-          </div>
-
-          {/* FOTO */}
-          <div className="shrink-0 relative flex items-center justify-center">
-            {/* Ondas irradiando (mesmas do hero, adaptadas para retângulo) */}
-            <div className="absolute w-56 h-72 md:w-64 md:h-80 rounded-2xl border border-purple-500/30 animate-[wave_3.5s_ease-out_infinite]" />
-            <div className="absolute w-56 h-72 md:w-64 md:h-80 rounded-2xl border border-purple-500/20 animate-[wave_3.5s_0.8s_ease-out_infinite]" />
-            <div className="absolute w-56 h-72 md:w-64 md:h-80 rounded-2xl border border-purple-500/10 animate-[wave_3.5s_1.6s_ease-out_infinite]" />
-
-            {/* Brilho atrás */}
-            <div className="absolute inset-0 bg-purple-600/10 blur-2xl rounded-2xl" />
-
-            {/* Foto */}
-            <div className="relative w-56 h-72 md:w-64 md:h-80 rounded-2xl overflow-hidden border border-purple-800/40 shadow-2xl shadow-purple-900/50 z-10">
-              <img
-                src="/rafael2.JPG"
-                alt="Rafael Lopes Bonfim"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Brilho embaixo */}
-            <div className="absolute -bottom-4 w-40 h-6 bg-purple-600/30 blur-xl rounded-full" />
           </div>
         </div>
       </section>
@@ -437,74 +347,72 @@ function Home() {
       {/* EXPERIÊNCIA PROFISSIONAL */}
       <section
         id="experiência"
-        className="max-w-4xl mx-auto px-6 py-24 relative z-10"
+        className="max-w-4xl mx-auto px-6 sm:px-8 py-20 relative z-10"
       >
-        <p className="text-[11px] tracking-[3px] uppercase text-violet-600 font-semibold mb-3">
-          Onde eu trabalhei
+        <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
+          Trajetória
         </p>
-        <h2 className="text-4xl font-bold text-purple-100 mb-12 tracking-tight">
-          Experiência <span className="text-purple-500">Profissional</span>
+        <h2 className="text-3xl font-bold text-zinc-100 mb-10 tracking-tight">
+          Experiência Profissional
         </h2>
 
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6">
           {/* Goodblock Computadores */}
-          <div className="bg-purple-950/10 border border-purple-900/30 rounded-2xl p-6 backdrop-blur-sm hover:border-purple-600/40 transition-all">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-purple-900/40 border border-purple-700/30 flex items-center justify-center">
-                  <Briefcase size={18} className="text-purple-400" />
+          <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl p-6 sm:p-8 transition-all hover:border-zinc-700/80">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-6 border-b border-zinc-800/60">
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-zinc-800/80 border border-zinc-700/60 flex items-center justify-center text-zinc-300">
+                  <Briefcase size={18} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-purple-100">
+                  <h3 className="text-base sm:text-lg font-semibold text-zinc-100">
                     Estagiário em Assistência Técnica
                   </h3>
-                  <p className="text-sm text-purple-400/80 font-medium">
+                  <p className="text-sm text-zinc-400 font-medium">
                     Goodblock Computadores
                   </p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-xs text-purple-500 font-semibold bg-purple-900/30 border border-purple-800/30 rounded-full px-4 py-1.5 w-fit">
+              <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-1.5 w-fit">
                 <Calendar size={13} />
                 04/2026 - 07/2026
               </div>
             </div>
 
             <div className="flex flex-col gap-4">
-              <div className="flex flex-col gap-3">
-                <div className="flex items-start gap-3">
-                  <span className="mt-1.5 w-2 h-2 rounded-full bg-purple-500 shrink-0" />
-                  <div>
-                    <p className="text-sm font-semibold text-purple-200 mb-1">
-                      Manutenção de Hardware e Software
-                    </p>
-                    <p className="text-sm text-purple-300/60 leading-relaxed">
-                      Realização de manutenção preventiva e corretiva em computadores e notebooks, incluindo formatação, instalação de sistemas operacionais, remoção de malwares e otimização de desempenho.
-                    </p>
-                  </div>
+              <div className="flex items-start gap-3">
+                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                <div>
+                  <p className="text-sm font-medium text-zinc-200 mb-0.5">
+                    Manutenção de Hardware e Software
+                  </p>
+                  <p className="text-sm text-zinc-400 leading-relaxed font-normal">
+                    Realização de manutenção preventiva e corretiva em computadores e notebooks, incluindo formatação, instalação de sistemas operacionais, remoção de malwares e otimização de desempenho.
+                  </p>
                 </div>
+              </div>
 
-                <div className="flex items-start gap-3">
-                  <span className="mt-1.5 w-2 h-2 rounded-full bg-purple-500 shrink-0" />
-                  <div>
-                    <p className="text-sm font-semibold text-purple-200 mb-1">
-                      Suporte ao Cliente
-                    </p>
-                    <p className="text-sm text-purple-300/60 leading-relaxed">
-                      Atendimento direto ao público para diagnóstico de problemas, esclarecimento de dúvidas técnicas e recomendação de soluções adequadas.
-                    </p>
-                  </div>
+              <div className="flex items-start gap-3">
+                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                <div>
+                  <p className="text-sm font-medium text-zinc-200 mb-0.5">
+                    Suporte ao Cliente
+                  </p>
+                  <p className="text-sm text-zinc-400 leading-relaxed font-normal">
+                    Atendimento direto ao público para diagnóstico de problemas, esclarecimento de dúvidas técnicas e recomendação de soluções adequadas.
+                  </p>
                 </div>
+              </div>
 
-                <div className="flex items-start gap-3">
-                  <span className="mt-1.5 w-2 h-2 rounded-full bg-purple-500 shrink-0" />
-                  <div>
-                    <p className="text-sm font-semibold text-purple-200 mb-1">
-                      Consultoria em Hardware
-                    </p>
-                    <p className="text-sm text-purple-300/60 leading-relaxed">
-                      Orientação sobre compatibilidade de peças e upgrades, auxiliando clientes na escolha de gerações de processadores, placas-mãe e outros componentes.
-                    </p>
-                  </div>
+              <div className="flex items-start gap-3">
+                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
+                <div>
+                  <p className="text-sm font-medium text-zinc-200 mb-0.5">
+                    Consultoria em Hardware
+                  </p>
+                  <p className="text-sm text-zinc-400 leading-relaxed font-normal">
+                    Orientação sobre compatibilidade de peças e upgrades, auxiliando clientes na escolha de processadores, placas-mãe e memórias.
+                  </p>
                 </div>
               </div>
             </div>
@@ -515,46 +423,47 @@ function Home() {
       {/* COMPETÊNCIAS */}
       <section
         id="competências"
-        className="max-w-4xl mx-auto px-6 py-24 relative z-10"
+        className="max-w-4xl mx-auto px-6 sm:px-8 py-20 relative z-10"
       >
-        <p className="text-[11px] tracking-[3px] uppercase text-violet-600 font-semibold mb-3">
-          O que eu sei fazer
+        <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
+          Habilidades
         </p>
-        <h2 className="text-4xl font-bold text-purple-100 mb-12 tracking-tight">
-          Minhas <span className="text-purple-500">Competências</span>
+        <h2 className="text-3xl font-bold text-zinc-100 mb-10 tracking-tight">
+          Minhas Competências
         </h2>
-        <div className="flex flex-col gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillBlocks.map((block) => (
             <div
               key={block.title}
-              className="bg-purple-950/10 border border-purple-900/30 rounded-2xl p-6 backdrop-blur-sm"
+              className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl p-6 transition-all hover:border-zinc-700/80 flex flex-col justify-between"
             >
-              <h3 className="text-base font-semibold text-purple-300 mb-5 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-purple-500 inline-block" />
-                {block.title}
-              </h3>
-              <div className="flex flex-col gap-5">
-                {block.subsections.map((sub, i) => (
-                  <div key={i}>
-                    {sub.label && (
-                      <p className="text-[11px] uppercase tracking-[2px] text-purple-600 font-semibold mb-3 ml-1">
-                        {sub.label}
-                      </p>
-                    )}
-                    <div className="flex flex-wrap gap-3">
-                      {sub.skills.map((skill) => (
-                        <SkillTag
-                          key={skill.name}
-                          icon={skill.icon}
-                          name={skill.name}
-                        />
-                      ))}
+              <div>
+                <h3 className="text-sm font-semibold text-zinc-200 mb-4 pb-3 border-b border-zinc-800/60 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+                  {block.title}
+                </h3>
+
+                <div className="flex flex-col gap-4">
+                  {block.subsections.map((sub, i) => (
+                    <div key={i}>
+                      {sub.label && (
+                        <p className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 font-semibold mb-2.5">
+                          {sub.label}
+                        </p>
+                      )}
+                      <div className="flex flex-wrap gap-2">
+                        {sub.skills.map((skill) => (
+                          <SkillTag
+                            key={skill.name}
+                            icon={skill.icon}
+                            name={skill.name}
+                          />
+                        ))}
+                      </div>
                     </div>
-                    {(sub.label === "Front-end" || sub.label === "Manutenção") && (
-                      <div className="border-t border-purple-900/40 mt-5" />
-                    )}
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           ))}
@@ -564,43 +473,97 @@ function Home() {
       {/* PROJETOS */}
       <section
         id="projetos"
-        className="max-w-4xl mx-auto px-6 py-24 relative z-10"
+        className="max-w-4xl mx-auto px-6 sm:px-8 py-20 relative z-10"
       >
-        <p className="text-[11px] tracking-[3px] uppercase text-violet-600 font-semibold mb-3">
-          O que eu construí
+        <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
+          Portfólio
         </p>
-        <h2 className="text-4xl font-bold text-purple-100 mb-4 tracking-tight">
-          Meus <span className="text-purple-500">Projetos</span>
-        </h2>
-        <p className="text-purple-300/50 max-w-md leading-relaxed mb-12 text-sm">
-          Projetos reais desenvolvidos para praticar e aprofundar meus
-          conhecimentos.
-        </p>
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div>
+            <h2 className="text-3xl font-bold text-zinc-100 tracking-tight">
+              Meus Projetos
+            </h2>
+            <p className="text-zinc-400 leading-relaxed text-sm mt-2">
+              Projetos reais e acadêmicos desenvolvidos com foco em boas práticas.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => (
             <ProjectCard key={project.id} {...project} />
           ))}
         </div>
       </section>
 
+      {/* SOBRE MIM */}
+      <section
+        id="sobre"
+        className="max-w-4xl mx-auto px-6 sm:px-8 py-20 relative z-10"
+      >
+        <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
+          Pessoal
+        </p>
+        <h2 className="text-3xl font-bold text-zinc-100 mb-10 tracking-tight">
+          Sobre Mim
+        </h2>
+
+        <div className="flex flex-col md:flex-row gap-10 md:gap-14 items-center justify-between">
+          {/* TEXTO */}
+          <div className="flex-1 flex flex-col gap-5">
+            <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
+              Estudante de Desenvolvimento de Software Multiplataforma na Fatec - Professor Jessen Vidal e técnico de informática, buscando novas oportunidades de aprendizado e crescimento profissional.
+            </p>
+            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-normal">
+              Competente em diversas tecnologias modernas, busco uma oportunidade de aplicar meus conhecimentos e descobrir novos caminhos na programação.
+            </p>
+
+            <div className="pt-2">
+              <a
+                href={INSTAGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-5 py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-zinc-600 text-zinc-200 hover:text-white rounded-xl font-medium text-sm transition-all shadow-xs w-fit group"
+              >
+                <Instagram size={16} className="text-pink-400 group-hover:text-pink-300 transition-colors" />
+                <span>Mais sobre mim</span>
+                <ArrowUpRight size={15} className="text-zinc-500 group-hover:text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+            </div>
+          </div>
+
+          {/* FOTO */}
+          <div className="shrink-0">
+            <div className="w-52 h-64 sm:w-60 sm:h-74 md:w-64 md:h-80 rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl shadow-black/80">
+              <img
+                src="/rafael2.JPG"
+                alt="Rafael Lopes Bonfim"
+                className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CONTATO */}
       <section
         id="contato"
-        className="max-w-4xl mx-auto px-6 py-24 text-center relative z-10"
+        className="max-w-4xl mx-auto px-6 sm:px-8 py-20 text-center relative z-10"
       >
-        <p className="text-[11px] tracking-[3px] uppercase text-violet-600 font-semibold mb-3">
-          Vamos conversar
+        <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
+          Contato
         </p>
-        <h2 className="text-4xl font-bold text-purple-100 mb-4 tracking-tight">
-          Entre em <span className="text-purple-500">Contato</span>
+        <h2 className="text-3xl font-bold text-zinc-100 mb-3 tracking-tight">
+          Vamos Conversar?
         </h2>
-        <p className="text-purple-300/50 max-w-sm mx-auto leading-relaxed mb-10 text-sm">
-          Aberto a oportunidades.
+        <p className="text-zinc-400 max-w-sm mx-auto leading-relaxed mb-8 text-sm">
+          Aberto a oportunidades profissionais, parcerias e projetos de software.
         </p>
+
         <div className="flex flex-wrap gap-3 justify-center">
           <a
             href="mailto:rafa.lopes.bonfim@gmail.com"
-            className="px-8 py-3 bg-linear-to-r from-violet-700 to-purple-500 text-white rounded-xl font-semibold text-sm shadow-lg shadow-purple-900/50 hover:shadow-purple-700/60 transition-shadow inline-flex items-center gap-2"
+            className="px-5 py-2.5 bg-zinc-100 text-zinc-900 hover:bg-white rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2 shadow-xs"
           >
             <Mail size={16} /> rafa.lopes.bonfim@gmail.com
           </a>
@@ -608,7 +571,7 @@ function Home() {
             href={LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3 border border-purple-700/50 text-purple-400 rounded-xl font-semibold text-sm hover:bg-purple-900/20 transition-colors inline-flex items-center gap-2"
+            className="px-5 py-2.5 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-200 rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2"
           >
             <Linkedin size={16} /> LinkedIn
           </a>
@@ -616,7 +579,7 @@ function Home() {
             href={GITHUB}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3 border border-purple-700/50 text-purple-400 rounded-xl font-semibold text-sm hover:bg-purple-900/20 transition-colors inline-flex items-center gap-2"
+            className="px-5 py-2.5 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-200 rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2"
           >
             <Github size={16} /> GitHub
           </a>
@@ -624,11 +587,13 @@ function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t transition-all backdrop-blur-xl border-purple-900/20 py-8 flex items-center justify-center gap-4 relative z-10">
-        <span className="font-bold text-purple-100">
-          <span className="text-purple-500">&lt;/</span>dev
-          <span className="text-purple-500">&gt;</span>
-        </span>
+      <footer className="border-t border-zinc-800/60 py-8 px-6 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto text-xs text-zinc-500 font-mono relative z-10">
+        <div>
+          Rafael Lopes Bonfim
+        </div>
+        <div className="text-zinc-600">
+          Desenvolvido com React & Tailwind CSS
+        </div>
       </footer>
     </div>
   );
@@ -644,3 +609,4 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
