@@ -190,9 +190,6 @@ function Home() {
           }`}
       >
         <div className="flex items-center justify-between">
-          <div className="font-mono font-semibold text-sm text-zinc-300 tracking-tight">
-            rafael.<span className="text-zinc-500">dev</span>
-          </div>
           <button
             onClick={() => setMenuOpen(false)}
             className="w-8 h-8 rounded-lg border border-zinc-800 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 transition-colors flex items-center justify-center"
