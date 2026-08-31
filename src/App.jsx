@@ -34,7 +34,7 @@ import {
 import { projects } from "./projects";
 import ProjectDetail from "./pages/ProjectDetail";
 
-const GITHUB = "https://github.com/rafa2333";
+const GITHUB = "https://github.com/Rafael-Bonfim";
 const LINKEDIN = "https://www.linkedin.com/in/rafael-lopes-bonfim-470817308";
 const INSTAGRAM = "https://www.instagram.com/r_lopess__/";
 
