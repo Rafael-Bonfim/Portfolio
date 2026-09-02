@@ -40,30 +40,57 @@ const INSTAGRAM = "https://www.instagram.com/r_lopess__/";
 
 const skillBlocks = [
   {
-    title: "Desenvolvimento Web",
+    title: "Front-end",
     subsections: [
       {
-        label: "Front-end",
+        label: null,
         skills: [
           { name: "React", icon: <Layers size={15} /> },
-          { name: "HTML5 & CSS3", icon: <Globe size={15} /> },
+          { name: "Next.js", icon: <Globe size={15} /> },
+          { name: "TypeScript", icon: <Code2 size={15} /> },
           { name: "JavaScript", icon: <Code2 size={15} /> },
           { name: "Tailwind CSS", icon: <Braces size={15} /> },
-        ],
-      },
-      {
-        label: "Back-end",
-        skills: [
-          { name: "Node.js", icon: <Terminal size={15} /> },
-          { name: "Express.js", icon: <Server size={15} /> },
-          { name: "Flask", icon: <Server size={15} /> },
-          { name: "REST APIs", icon: <Cpu size={15} /> },
+          { name: "Vite", icon: <Cpu size={15} /> },
+          { name: "HTML5", icon: <FileCode2 size={15} /> },
+          { name: "CSS3", icon: <FileCode2 size={15} /> },
         ],
       },
     ],
   },
   {
-    title: "Desenvolvimento de Software",
+    title: "Back-end & APIs",
+    subsections: [
+      {
+        label: null,
+        skills: [
+          { name: "Node.js", icon: <Terminal size={15} /> },
+          { name: "Express.js", icon: <Server size={15} /> },
+          { name: "Flask", icon: <Server size={15} /> },
+          { name: "REST APIs", icon: <Cpu size={15} /> },
+          { name: "Prisma", icon: <Database size={15} /> },
+          { name: "JWT", icon: <Shield size={15} /> },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Dados & Infraestrutura",
+    subsections: [
+      {
+        label: null,
+        skills: [
+          { name: "MySQL", icon: <Database size={15} /> },
+          { name: "MongoDB", icon: <Database size={15} /> },
+          { name: "Docker", icon: <HardDrive size={15} /> },
+          { name: "Git", icon: <GitBranch size={15} /> },
+          { name: "GitHub", icon: <Github size={15} /> },
+          { name: "Insomnia", icon: <Code2 size={15} /> },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Outras Linguagens",
     subsections: [
       {
         label: null,
@@ -71,43 +98,7 @@ const skillBlocks = [
           { name: "Python", icon: <FileCode2 size={15} /> },
           { name: "Java", icon: <Coffee size={15} /> },
           { name: "Kotlin", icon: <Smartphone size={15} /> },
-          { name: "C", icon: <FileCode2 size={15} /> },
           { name: "C#", icon: <FileCode2 size={15} /> },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Manutenção & Hardware",
-    subsections: [
-      {
-        label: "Manutenção",
-        skills: [
-          { name: "Manutenção Preventiva e Corretiva", icon: <Wrench size={15} /> },
-          { name: "Formatação e Instalação de S.O.", icon: <Monitor size={15} /> },
-          { name: "Remoção de Malwares", icon: <Shield size={15} /> },
-          { name: "Diagnóstico de Problemas", icon: <Headphones size={15} /> },
-        ],
-      },
-      {
-        label: "Hardware",
-        skills: [
-          { name: "Montagem de Computadores", icon: <Cpu size={15} /> },
-          { name: "Upgrades e Compatibilidade", icon: <HardDrive size={15} /> },
-          { name: "Suporte ao Cliente", icon: <Headphones size={15} /> },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Gerais",
-    subsections: [
-      {
-        label: null,
-        skills: [
-          { name: "MySQL", icon: <Database size={15} /> },
-          { name: "MongoDB", icon: <Database size={15} /> },
-          { name: "Git & GitHub", icon: <GitBranch size={15} /> },
         ],
       },
     ],
