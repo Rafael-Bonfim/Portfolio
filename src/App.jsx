@@ -266,7 +266,7 @@ function Home() {
             href={GITHUB}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/60 transition-colors"
+            className="contact-social-button p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/60 transition-colors"
             title="GitHub"
           >
             <Github size={17} />
@@ -275,7 +275,7 @@ function Home() {
             href={LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/60 transition-colors"
+            className="contact-social-button p-2 rounded-lg text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/60 transition-colors"
             title="LinkedIn"
           >
             <Linkedin size={17} />
