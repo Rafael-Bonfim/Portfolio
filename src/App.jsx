@@ -74,7 +74,7 @@ const skillBlocks = [
     ],
   },
   {
-    title: "Dados & Infraestrutura",
+    title: "Data & Infrastructure",
     subsections: [
       {
         label: null,
@@ -90,7 +90,7 @@ const skillBlocks = [
     ],
   },
   {
-    title: "Outras Linguagens",
+    title: "Other Languages",
     subsections: [
       {
         label: null,
@@ -184,14 +184,14 @@ function Home() {
           <button
             onClick={() => setMenuOpen(false)}
             className="w-8 h-8 rounded-lg border border-zinc-800 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 transition-colors flex items-center justify-center"
-            aria-label="Fechar menu"
+            aria-label="Close menu"
           >
             <X size={16} />
           </button>
         </div>
 
         <nav className="flex flex-col gap-1.5 flex-1">
-          {["Início", "Experiência", "Competências", "Projetos", "Sobre", "Contato"].map(
+          {["Home", "Experience", "Skills", "Projects", "About", "Contact"].map(
             (item) => (
               <a
                 key={item}
@@ -256,7 +256,7 @@ function Home() {
         <button
           onClick={() => setMenuOpen(true)}
           className="bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 rounded-lg p-2 text-zinc-400 hover:text-zinc-100 transition-colors flex items-center"
-          aria-label="Abrir menu"
+          aria-label="Open menu"
         >
           <Menu size={18} />
         </button>
@@ -285,7 +285,7 @@ function Home() {
 
       {/* HERO */}
       <section
-        id="início"
+        id="home"
         className="min-h-[92vh] flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 px-6 sm:px-10 pt-28 pb-20 relative z-10 max-w-5xl mx-auto"
       >
         <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
@@ -294,28 +294,28 @@ function Home() {
           </h1>
 
           <h2 className="text-xl sm:text-2xl font-light text-zinc-400 mb-8">
-            DSM - <span className="text-zinc-100 font-semibold">Fatec Prof. Jessen Vidal</span>
+            MSD - <span className="text-zinc-100 font-semibold">Fatec Prof. Jessen Vidal</span>
           </h2>
 
           <div className="flex gap-3 flex-wrap justify-center md:justify-start">
             <a
-              href="/RafaelBonfim_PT.pdf"
+              href="/RafaelBonfim_ENG.pdf"
               download="CV-Rafael-Lopes-Bonfim.pdf"
               className="px-5 py-2.5 bg-zinc-100 text-zinc-900 hover:bg-white rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2 shadow-xs"
             >
-              <Download size={15} /> Baixar CV
+              <Download size={15} /> Download CV
             </a>
             <a
               href="#projetos"
               className="px-5 py-2.5 bg-zinc-900/80 hover:bg-zinc-850 border border-zinc-800 hover:border-zinc-700 text-zinc-200 rounded-xl font-medium text-sm transition-all"
             >
-              Ver Projetos
+              View Projects
             </a>
             <a
               href="#contato"
               className="px-5 py-2.5 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/40 rounded-xl font-medium text-sm transition-all"
             >
-              Contato
+              Contact
             </a>
           </div>
         </div>
@@ -334,14 +334,14 @@ function Home() {
 
       {/* EXPERIÊNCIA PROFISSIONAL */}
       <section
-        id="experiência"
+        id="experience"
         className="max-w-4xl mx-auto px-6 sm:px-8 py-20 relative z-10"
       >
         <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-          Trajetória
+          Journey
         </p>
         <h2 className="text-3xl font-bold text-zinc-100 mb-10 tracking-tight">
-          Experiência Profissional
+          Professional Experience
         </h2>
 
         <div className="flex flex-col gap-6">
@@ -354,7 +354,7 @@ function Home() {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-semibold text-zinc-100">
-                    Estagiário em Assistência Técnica
+                    Technical Assistance Intern
                   </h3>
                   <p className="text-sm text-zinc-400 font-medium">
                     Goodblock Computadores
@@ -372,10 +372,10 @@ function Home() {
                 <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-zinc-200 mb-0.5">
-                    Manutenção de Hardware e Software
+                    Hardware and Software Maintenance
                   </p>
                   <p className="text-sm text-zinc-400 leading-relaxed font-normal">
-                    Realização de manutenção preventiva e corretiva em computadores e notebooks, incluindo formatação, instalação de sistemas operacionais, remoção de malwares e otimização de desempenho.
+                    Preventive and corrective maintenance on computers and notebooks, including formatting, operating system installation, malware removal, and performance optimization.
                   </p>
                 </div>
               </div>
@@ -384,10 +384,10 @@ function Home() {
                 <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-zinc-200 mb-0.5">
-                    Suporte ao Cliente
+                    Customer Support
                   </p>
                   <p className="text-sm text-zinc-400 leading-relaxed font-normal">
-                    Atendimento direto ao público para diagnóstico de problemas, esclarecimento de dúvidas técnicas e recomendação de soluções adequadas.
+                    Direct customer service for troubleshooting, clarifying technical doubts, and recommending appropriate solutions.
                   </p>
                 </div>
               </div>
@@ -396,10 +396,10 @@ function Home() {
                 <span className="mt-2 w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-zinc-200 mb-0.5">
-                    Consultoria em Hardware
+                    Hardware Consulting
                   </p>
                   <p className="text-sm text-zinc-400 leading-relaxed font-normal">
-                    Orientação sobre compatibilidade de peças e upgrades, auxiliando clientes na escolha de processadores, placas-mãe e memórias.
+                    Guidance on parts compatibility and upgrades, assisting customers in choosing processors, motherboards, and memory.
                   </p>
                 </div>
               </div>
@@ -410,14 +410,14 @@ function Home() {
 
       {/* COMPETÊNCIAS */}
       <section
-        id="competências"
+        id="skills"
         className="max-w-4xl mx-auto px-6 sm:px-8 py-20 relative z-10"
       >
         <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-          Habilidades
+          Abilities
         </p>
         <h2 className="text-3xl font-bold text-zinc-100 mb-10 tracking-tight">
-          Minhas Competências
+          My Skills
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -460,19 +460,19 @@ function Home() {
 
       {/* PROJETOS */}
       <section
-        id="projetos"
+        id="projects"
         className="max-w-4xl mx-auto px-6 sm:px-8 py-20 relative z-10"
       >
         <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-          Portfólio
+          Portfolio
         </p>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
             <h2 className="text-3xl font-bold text-zinc-100 tracking-tight">
-              Meus Projetos
+              My Projects
             </h2>
             <p className="text-zinc-400 leading-relaxed text-sm mt-2">
-              Projetos reais e acadêmicos desenvolvidos com foco em boas práticas.
+              Real and academic projects developed with a focus on best practices.
             </p>
           </div>
         </div>
@@ -486,24 +486,24 @@ function Home() {
 
       {/* SOBRE MIM */}
       <section
-        id="sobre"
+        id="about"
         className="max-w-4xl mx-auto px-6 sm:px-8 py-20 relative z-10"
       >
         <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-          Pessoal
+          Personal
         </p>
         <h2 className="text-3xl font-bold text-zinc-100 mb-10 tracking-tight">
-          Sobre Mim
+          About Me
         </h2>
 
         <div className="flex flex-col md:flex-row gap-10 md:gap-14 items-center justify-between">
           {/* TEXTO */}
           <div className="flex-1 flex flex-col gap-5">
             <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
-              Estudante de Desenvolvimento de Software Multiplataforma na Fatec - Professor Jessen Vidal e técnico de informática, buscando novas oportunidades de aprendizado e crescimento profissional.
+              Multiplatform Software Development student at Fatec - Professor Jessen Vidal and IT technician, looking for new opportunities for learning and professional growth.
             </p>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-normal">
-              Competente em diversas tecnologias modernas, busco uma oportunidade de aplicar meus conhecimentos e descobrir novos caminhos na programação.
+              Proficient in several modern technologies, looking for an opportunity to apply my knowledge and discover new paths in programming.
             </p>
 
             <div className="pt-2">
@@ -514,7 +514,7 @@ function Home() {
                 className="inline-flex items-center gap-2.5 px-5 py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 hover:border-zinc-600 text-zinc-200 hover:text-white rounded-xl font-medium text-sm transition-all shadow-xs w-fit group"
               >
                 <Instagram size={16} className="text-pink-400 group-hover:text-pink-300 transition-colors" />
-                <span>Mais sobre mim</span>
+                <span>More about me</span>
                 <ArrowUpRight size={15} className="text-zinc-500 group-hover:text-zinc-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>
@@ -539,13 +539,13 @@ function Home() {
         className="max-w-4xl mx-auto px-6 sm:px-8 py-20 text-center relative z-10"
       >
         <p className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 mb-2">
-          Contato
+          Contact
         </p>
         <h2 className="text-3xl font-bold text-zinc-100 mb-3 tracking-tight">
-          Vamos Conversar?
+          Let's Talk?
         </h2>
         <p className="text-zinc-400 max-w-sm mx-auto leading-relaxed mb-8 text-sm">
-          Aberto a oportunidades profissionais, parcerias e projetos de software.
+          Open to professional opportunities, partnerships, and software projects.
         </p>
 
         <div className="flex flex-wrap gap-3 justify-center">
@@ -580,7 +580,7 @@ function Home() {
           Rafael Lopes Bonfim
         </div>
         <div className="text-zinc-600">
-          Desenvolvido com React & Tailwind CSS
+          Developed with React & Tailwind CSS
         </div>
       </footer>
     </div>

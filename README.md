@@ -1,51 +1,68 @@
-# 💻 Portfólio Pessoal - Rafael Lopes Bonfim
+# 💻 Personal Portfolio - Rafael Lopes Bonfim
 
-Bem-vindo ao repositório do meu portfólio web! Este projeto foi desenvolvido para apresentar minha trajetória acadêmica e profissional, minhas competências técnicas em desenvolvimento de software e hardware, além de exibir meus principais projetos.
-
----
-
-## 📌 Sobre o Projeto
-
-O site é uma aplicação **Single Page Application (SPA)** responsiva, moderna e otimizada, construída com **React** e estilizada com **Tailwind CSS**. Possui navegação por rotas para detalhamento individual de cada projeto e menu lateral responsivo para navegação fluida em dispositivos móveis.
+Welcome to my personal portfolio repository! This project was developed to showcase my academic and professional journey, my technical skills in software and hardware development, and to display my main projects.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 📌 About the Project
 
-### **Front-end & Estilização**
-* **React.js** — Biblioteca principal para a construção da interface de usuário.
-* **React Router DOM** — Gerenciamento de rotas e páginas de detalhes dos projetos (`/` e `/projeto/:id`).
-* **Tailwind CSS** — Framework utilitário de CSS para design moderno e responsivo.
-* **Lucide React** — Pacote de ícones minimalistas e otimizados.
+The website is a responsive, modern, and optimized **Single Page Application (SPA)** built with **React** and styled with **Tailwind CSS**. It features route-based navigation to view detailed information for each project individually and a responsive sidebar menu for smooth mobile navigation.
 
 ---
 
-## 📁 Estrutura do Projeto
+## 🚀 Technologies Used
+
+* **React.js** — The core library for building the user interface.
+* **React Router DOM** — Handles routing and project detail pages (`/` and `/projeto/:id`).
+* **Tailwind CSS** — A utility-first CSS framework for a modern and responsive design.
+* **Vite** — Fast frontend build tool.
+* **Lucide React** — A package of minimal and optimized icons.
+
+---
+
+## 📁 Project Structure
 
 ```text
 src/
- ├── components/       # Componentes reaproveitáveis (cards, tags, layout)
  ├── pages/
- │    └── ProjectDetail.jsx  # Página de detalhes de um projeto específico
- ├── projects.js       # Base de dados/array de informações dos projetos
- ├── App.css           # Estilos globais e customizações do Tailwind
- ├── App.jsx           # Componente principal, rotas e seções do portfólio
- └── main.jsx          # Ponto de entrada da aplicação React# 💻 Portfólio Pessoal - Rafael Lopes Bonfim
-
-Bem-vindo ao repositório do meu portfólio web! Este projeto foi desenvolvido para apresentar minha trajetória acadêmica e profissional, minhas competências técnicas em desenvolvimento de software e hardware, além de exibir meus principais projetos.
-
----
-
-## 📌 Sobre o Projeto
-
-O site é uma aplicação **Single Page Application (SPA)** responsiva, moderna e otimizada, construída com **React** e estilizada com **Tailwind CSS**. Possui navegação por rotas para detalhamento individual de cada projeto e menu lateral responsivo para navegação fluida em dispositivos móveis.
+ │    └── ProjectDetail.jsx  # Details page for a specific project
+ ├── projects.js             # Database/array containing project data and images
+ ├── App.css                 # Global styles and Tailwind customizations
+ ├── App.jsx                 # Main component, containing routing and portfolio sections
+ ├── index.css               # Main CSS entry point
+ └── main.jsx                # React application entry point
+```
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## ⚙️ How to Run Locally
 
-### **Front-end & Estilização**
-* **React.js** — Biblioteca principal para a construção da interface de usuário.
-* **React Router DOM** — Gerenciamento de rotas e páginas de detalhes dos projetos (`/` e `/projeto/:id`).
-* **Tailwind CSS** — Framework utilitário de CSS para design moderno e responsivo.
-* **Lucide React** — Pacote de ícones minimalistas e otimizados.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Rafael-Bonfim/portfolio.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd portfolio
+   ```
+
+3. **Install the dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   *The application will typically be available at `http://localhost:5173`.*
+
+---
+
+## 📬 Contact & Links
+
+- **Email:** rafa.lopes.bonfim@gmail.com
+- **LinkedIn:** [Rafael Bonfim](https://www.linkedin.com/in/rafael-bonfim-470817308/)
+- **GitHub:** [Rafael-Bonfim](https://github.com/Rafael-Bonfim)
+- **Instagram:** [@r_lopess__](https://www.instagram.com/r_lopess__/)
