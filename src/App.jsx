@@ -255,7 +255,7 @@ function Home() {
       >
         <button
           onClick={() => setMenuOpen(true)}
-          className="bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 rounded-lg p-2 text-zinc-400 hover:text-zinc-100 transition-colors flex items-center"
+          className="menu-toggle-button bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 rounded-lg p-2 text-zinc-400 hover:text-zinc-100 transition-colors flex items-center"
           aria-label="Open menu"
         >
           <Menu size={18} />
