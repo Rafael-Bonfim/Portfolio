@@ -301,7 +301,7 @@ function Home() {
             <a
               href="/RafaelBonfim_ENG.pdf"
               download="CV-Rafael-Lopes-Bonfim.pdf"
-              className="px-5 py-2.5 bg-zinc-100 text-zinc-900 hover:bg-white rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2 shadow-xs"
+              className="hero-action-button hero-cv-button px-5 py-2.5 bg-zinc-100 text-zinc-900 hover:bg-white rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2 shadow-xs"
             >
               <Download size={15} /> Download CV
             </a>
@@ -313,7 +313,7 @@ function Home() {
             </a>
             <a
               href="#contato"
-              className="px-5 py-2.5 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/40 rounded-xl font-medium text-sm transition-all"
+              className="hero-action-button hero-contact-button px-5 py-2.5 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/40 rounded-xl font-medium text-sm transition-all"
             >
               Contact
             </a>
@@ -551,7 +551,7 @@ function Home() {
         <div className="flex flex-wrap gap-3 justify-center">
           <a
             href="mailto:rafa.lopes.bonfim@gmail.com"
-            className="px-5 py-2.5 bg-zinc-100 text-zinc-900 hover:bg-white rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2 shadow-xs"
+            className="contact-action-button contact-email-button px-5 py-2.5 bg-zinc-100 text-zinc-900 hover:bg-white rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2 shadow-xs"
           >
             <Mail size={16} /> rafa.lopes.bonfim@gmail.com
           </a>
@@ -559,7 +559,7 @@ function Home() {
             href={LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-200 rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2"
+            className="contact-action-button contact-social-button px-5 py-2.5 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-200 rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2"
           >
             <Linkedin size={16} /> LinkedIn
           </a>
@@ -567,7 +567,7 @@ function Home() {
             href={GITHUB}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-200 rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2"
+            className="contact-action-button contact-social-button px-5 py-2.5 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-200 rounded-xl font-medium text-sm transition-all inline-flex items-center gap-2"
           >
             <Github size={16} /> GitHub
           </a>
