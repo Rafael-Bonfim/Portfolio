@@ -20,9 +20,9 @@ export default function ProjectDetail() {
   const hasImages = project.images && project.images.length > 0;
 
   return (
-    <div className="min-h-screen bg-[#09090b] text-zinc-100 relative overflow-x-hidden selection:bg-violet-500/20 selection:text-violet-200">
+    <div className="min-h-screen bg-[#111217] text-zinc-100 relative overflow-x-hidden selection:bg-violet-500/20 selection:text-violet-200">
       {/* Background Subtle Gradient Grid */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.08),rgba(255,255,255,0))] pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(80,82,98,0.025),rgba(255,255,255,0))] pointer-events-none z-0" />
 
       <div className="max-w-4xl mx-auto px-6 py-16 relative z-10">
         {/* Botão voltar */}

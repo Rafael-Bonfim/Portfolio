@@ -164,9 +164,9 @@ function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#09090b] text-zinc-100 overflow-x-hidden relative selection:bg-violet-500/20 selection:text-violet-200">
+    <div className="min-h-screen bg-[#111217] text-zinc-100 overflow-x-hidden relative selection:bg-violet-500/20 selection:text-violet-200">
       {/* Background Subtle Gradient Grid */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.08),rgba(255,255,255,0))] pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(80,82,98,0.025),rgba(255,255,255,0))] pointer-events-none z-0" />
 
       {/* OVERLAY */}
       <div

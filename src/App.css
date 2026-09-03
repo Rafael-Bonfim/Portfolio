@@ -2,8 +2,8 @@
 
 #root > div {
   background-image:
-    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.009) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.009) 1px, transparent 1px);
   background-size: 72px 72px;
   background-position: center top;
 }
@@ -27,8 +27,8 @@
 [class*="text-zinc-300"] { color: #d0cbd8 !important; }
 
 /* Accent details */
-[class*="bg-violet-400"], [class*="bg-violet-500"] { background-color: #a78bfa !important; }
-[class*="text-violet-400"], [class*="text-violet-500"] { color: #b9a4ff !important; }
+[class~="bg-violet-400"], [class~="bg-violet-500"] { background-color: #a78bfa !important; }
+[class~="text-violet-400"], [class~="text-violet-500"] { color: #b9a4ff !important; }
 
 /* Header and mobile navigation */
 aside {
