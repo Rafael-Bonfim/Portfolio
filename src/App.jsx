@@ -289,8 +289,8 @@ function Home() {
         className="min-h-[92vh] flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 px-6 sm:px-10 pt-28 pb-20 relative z-10 max-w-5xl mx-auto"
       >
         <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-100 leading-tight mb-3">
-            Rafael Lopes Bonfim
+          <h1 className="hero-name text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-100 leading-tight mb-3">
+            <span>Rafael Lopes Bonfim</span>
           </h1>
 
           <h2 className="text-xl sm:text-2xl font-light text-zinc-400 mb-8">
