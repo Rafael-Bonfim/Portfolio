@@ -35,34 +35,7 @@ src/
 
 ---
 
-## ⚙️ How to Run Locally
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Rafael-Bonfim/portfolio.git
-   ```
-
-2. **Navigate to the project directory:**
-   ```bash
-   cd portfolio
-   ```
-
-3. **Install the dependencies:**
-   ```bash
-   npm install
-   ```
-
-4. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   *The application will typically be available at `http://localhost:5173`.*
-
----
-
 ## 📬 Contact & Links
 
 - **Email:** rafa.lopes.bonfim@gmail.com
 - **LinkedIn:** [Rafael Bonfim](https://www.linkedin.com/in/rafael-bonfim-470817308/)
-- **GitHub:** [Rafael-Bonfim](https://github.com/Rafael-Bonfim)
-- **Instagram:** [@r_lopess__](https://www.instagram.com/r_lopess__/)
