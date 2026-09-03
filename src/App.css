@@ -47,9 +47,8 @@ aside {
 h1, h2, h3 { letter-spacing: -0.035em; }
 p { line-height: 1.65; }
 
-/* Signature hero detail: a restrained light sweep and baseline accent */
+/* Signature hero detail: a restrained light sweep */
 .hero-name {
-  position: relative;
   width: fit-content;
   isolation: isolate;
 }
@@ -64,31 +63,13 @@ p { line-height: 1.65; }
   animation: name-sweep 7s ease-in-out infinite;
 }
 
-.hero-name::after {
-  content: "";
-  position: absolute;
-  left: 0.08em;
-  right: 22%;
-  bottom: -0.12em;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(167, 139, 250, .9), rgba(167, 139, 250, .08));
-  transform-origin: left;
-  animation: name-line 7s ease-in-out infinite;
-}
-
 @keyframes name-sweep {
   0%, 60%, 100% { background-position: 100% 50%; }
   74% { background-position: 0% 50%; }
 }
 
-@keyframes name-line {
-  0%, 60%, 100% { transform: scaleX(.82); opacity: .65; }
-  74% { transform: scaleX(1); opacity: 1; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-name span, .hero-name::after { animation: none; }
+  .hero-name span { animation: none; }
 }
 
 
