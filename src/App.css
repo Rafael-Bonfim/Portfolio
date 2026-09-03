@@ -36,6 +36,24 @@ aside {
   border-color: rgba(139, 92, 246, .24) !important;
 }
 
+/* Primary hero CTA: clear, restrained hover feedback */
+.hero-projects-button {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .18), inset 0 1px rgba(255, 255, 255, .045);
+}
+
+.hero-projects-button:hover {
+  background: rgba(43, 39, 55, .92) !important;
+  border-color: rgba(167, 139, 250, .58) !important;
+  color: #f4f3f7 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .28), 0 0 0 1px rgba(139, 92, 246, .12);
+}
+
+.hero-projects-button:focus-visible {
+  outline: 2px solid #b9a4ff;
+  outline-offset: 3px;
+}
+
 /* Project cards feel interactive without being loud */
 .group {
   transition: transform .3s cubic-bezier(.2,.8,.2,1), border-color .3s ease, box-shadow .3s ease, background .3s ease;

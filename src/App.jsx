@@ -307,7 +307,7 @@ function Home() {
             </a>
             <a
               href="#projetos"
-              className="px-5 py-2.5 bg-zinc-900/80 hover:bg-zinc-850 border border-zinc-800 hover:border-zinc-700 text-zinc-200 rounded-xl font-medium text-sm transition-all"
+              className="hero-projects-button px-5 py-2.5 bg-zinc-900/80 border border-zinc-800 text-zinc-200 rounded-xl font-medium text-sm transition-all"
             >
               View Projects
             </a>
