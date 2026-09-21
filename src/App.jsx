@@ -30,9 +30,10 @@ import {
   Calendar,
   Instagram,
   Download,
+  FolderOpen,
+  GraduationCap,
 } from "lucide-react";
-import { projects } from "./projects";
-import ProjectDetail from "./pages/ProjectDetail";
+import ProjectsPage from "./pages/ProjectsPage";
 
 const GITHUB = "https://github.com/Rafael-Bonfim";
 const LINKEDIN = "https://www.linkedin.com/in/rafael-bonfim-470817308/";
@@ -114,43 +115,10 @@ function SkillTag({ icon, name }) {
   );
 }
 
-function ProjectCard({ id, title, shortDescription, tags }) {
-  const navigate = useNavigate();
-
-  return (
-    <div
-      onClick={() => navigate(`/projeto/${id}`)}
-      className="group bg-zinc-900/30 border border-zinc-800/70 hover:border-zinc-700 rounded-2xl p-6 sm:p-7 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-zinc-900/60"
-    >
-      <div>
-        <div className="flex items-start justify-between gap-4 mb-3">
-          <h3 className="text-lg font-semibold text-zinc-100 group-hover:text-white transition-colors">
-            {title}
-          </h3>
-          <div className="w-8 h-8 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:bg-zinc-700/80 transition-all shrink-0">
-            <ArrowUpRight size={16} />
-          </div>
-        </div>
-        <p className="text-zinc-400 text-sm leading-relaxed mb-6 font-normal">
-          {shortDescription}
-        </p>
-      </div>
-
-      <div className="flex flex-wrap gap-2 pt-2 border-t border-zinc-800/40">
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400 font-medium"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
+const GITHUB_ACADEMIC = "https://github.com/Projetos-Faculdade-Rafael";
 
 function Home() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -478,9 +446,53 @@ function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
-          ))}
+          {/* Card: Projects — internal page */}
+          <div
+            onClick={() => navigate("/projetos")}
+            className="group bg-zinc-900/30 border border-zinc-800/70 hover:border-zinc-700 rounded-2xl p-7 sm:p-8 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-zinc-900/60 min-h-[200px]"
+          >
+            <div>
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="w-11 h-11 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 group-hover:bg-violet-500/20 transition-all">
+                  <FolderOpen size={20} />
+                </div>
+                <div className="w-8 h-8 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:bg-zinc-700/80 transition-all shrink-0">
+                  <ArrowUpRight size={16} />
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-zinc-100 group-hover:text-white transition-colors mb-2">
+                Projects
+              </h3>
+              <p className="text-zinc-400 text-sm leading-relaxed font-normal">
+                Complete projects I actively built and contributed to.
+              </p>
+            </div>
+          </div>
+
+          {/* Card: Academic Works — external GitHub */}
+          <a
+            href={GITHUB_ACADEMIC}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-zinc-900/30 border border-zinc-800/70 hover:border-zinc-700 rounded-2xl p-7 sm:p-8 flex flex-col justify-between cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-zinc-900/60 min-h-[200px] no-underline"
+          >
+            <div>
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/20 transition-all">
+                  <GraduationCap size={20} />
+                </div>
+                <div className="w-8 h-8 rounded-lg bg-zinc-800/60 border border-zinc-700/50 flex items-center justify-center text-zinc-400 group-hover:text-white group-hover:bg-zinc-700/80 transition-all shrink-0">
+                  <Github size={16} />
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-zinc-100 group-hover:text-white transition-colors mb-2">
+                Academic Works
+              </h3>
+              <p className="text-zinc-400 text-sm leading-relaxed font-normal">
+                Coursework and academic projects from my studies.
+              </p>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -592,7 +604,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/projeto/:id" element={<ProjectDetail />} />
+        <Route path="/projetos" element={<ProjectsPage />} />
       </Routes>
     </BrowserRouter>
   );
