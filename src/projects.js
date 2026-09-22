@@ -10,7 +10,7 @@ The result was a customized solution that automates administrative processes, re
     tags: ["Python", "MySQL"],
     tools: ["Python 3.12", "Tkinter", "CustomTkinter", "MySQL"],
     contribution:
-      "I worked on the integration between the Python application and the MySQL database, developing the functions responsible for managing relationships between the system’s data and ensuring proper communication between the application and the database..",
+      "I worked on the integration between the Python application and the MySQL database, developing the functions responsible for managing relationships between the system’s data and ensuring proper communication between the application and the database.",
     github: "https://github.com/rafa2333",
     live: null,
     images: [
