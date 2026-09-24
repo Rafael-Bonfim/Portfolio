@@ -4,27 +4,13 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import {
   Menu,
   X,
-  Code2,
-  Database,
-  Globe,
-  Cpu,
-  Layers,
-  Terminal,
   Github,
   Linkedin,
   Mail,
   ChevronRight,
-  Smartphone,
-  Coffee,
-  GitBranch,
-  Server,
-  FileCode2,
-  Braces,
   ArrowUpRight,
   Wrench,
   Monitor,
-  HardDrive,
-  Shield,
   Headphones,
   Briefcase,
   Calendar,
@@ -33,6 +19,32 @@ import {
   FolderOpen,
   GraduationCap,
 } from "lucide-react";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiKotlin,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiVite,
+  SiHtml5,
+  SiCss,
+  SiNodedotjs,
+  SiExpress,
+  SiFlask,
+  SiJsonwebtokens,
+  SiMysql,
+  SiMongodb,
+  SiPrisma,
+  SiGit,
+  SiGithub,
+  SiDocker,
+  SiInsomnia,
+  SiClaude,
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { TbBrandCSharp, TbApi } from "react-icons/tb";
 import ProjectsPage from "./pages/ProjectsPage";
 
 const GITHUB = "https://github.com/Rafael-Bonfim";
@@ -41,65 +53,71 @@ const INSTAGRAM = "https://www.instagram.com/r_lopess__/";
 
 const skillBlocks = [
   {
+    title: "Languages",
+    subsections: [
+      {
+        label: null,
+        skills: [
+          { name: "JavaScript", icon: <SiJavascript size={15} color="#F7DF1E" /> },
+          { name: "TypeScript", icon: <SiTypescript size={15} color="#3178C6" /> },
+          { name: "Python", icon: <SiPython size={15} color="#3776AB" /> },
+          { name: "Java", icon: <FaJava size={15} color="#E76F00" /> },
+          { name: "Kotlin", icon: <SiKotlin size={15} color="#7F52FF" /> },
+          { name: "C#", icon: <TbBrandCSharp size={15} color="#9B4F96" /> },
+        ],
+      },
+    ],
+  },
+  {
     title: "Front-end",
     subsections: [
       {
         label: null,
         skills: [
-          { name: "React", icon: <Layers size={15} /> },
-          { name: "Next.js", icon: <Globe size={15} /> },
-          { name: "TypeScript", icon: <Code2 size={15} /> },
-          { name: "JavaScript", icon: <Code2 size={15} /> },
-          { name: "Tailwind CSS", icon: <Braces size={15} /> },
-          { name: "Vite", icon: <Cpu size={15} /> },
-          { name: "HTML5", icon: <FileCode2 size={15} /> },
-          { name: "CSS3", icon: <FileCode2 size={15} /> },
+          { name: "React", icon: <SiReact size={15} color="#61DAFB" /> },
+          { name: "Next.js", icon: <SiNextdotjs size={15} /> },
+          { name: "Tailwind CSS", icon: <SiTailwindcss size={15} color="#06B6D4" /> },
+          { name: "Vite", icon: <SiVite size={15} color="#646CFF" /> },
+          { name: "HTML5", icon: <SiHtml5 size={15} color="#E34F26" /> },
+          { name: "CSS3", icon: <SiCss size={15} color="#1572B6" /> },
         ],
       },
     ],
   },
   {
-    title: "Back-end & APIs",
+    title: "Back-end & Data",
     subsections: [
       {
-        label: null,
+        label: "Frameworks & APIs",
         skills: [
-          { name: "Node.js", icon: <Terminal size={15} /> },
-          { name: "Express.js", icon: <Server size={15} /> },
-          { name: "Flask", icon: <Server size={15} /> },
-          { name: "REST APIs", icon: <Cpu size={15} /> },
-          { name: "Prisma", icon: <Database size={15} /> },
-          { name: "JWT", icon: <Shield size={15} /> },
+          { name: "Node.js", icon: <SiNodedotjs size={15} color="#5FA04E" /> },
+          { name: "Express.js", icon: <SiExpress size={15} /> },
+          { name: "Flask", icon: <SiFlask size={15} /> },
+          { name: "REST APIs", icon: <TbApi size={15} /> },
+          { name: "JWT", icon: <SiJsonwebtokens size={15} /> },
+        ],
+      },
+      {
+        label: "Databases & ORM",
+        skills: [
+          { name: "MySQL", icon: <SiMysql size={15} color="#4479A1" /> },
+          { name: "MongoDB", icon: <SiMongodb size={15} color="#47A248" /> },
+          { name: "Prisma", icon: <SiPrisma size={15} /> },
         ],
       },
     ],
   },
   {
-    title: "Data & Infrastructure",
+    title: "Tools & Workflow",
     subsections: [
       {
         label: null,
         skills: [
-          { name: "MySQL", icon: <Database size={15} /> },
-          { name: "MongoDB", icon: <Database size={15} /> },
-          { name: "Docker", icon: <HardDrive size={15} /> },
-          { name: "Git", icon: <GitBranch size={15} /> },
-          { name: "GitHub", icon: <Github size={15} /> },
-          { name: "Insomnia", icon: <Code2 size={15} /> },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Other Languages",
-    subsections: [
-      {
-        label: null,
-        skills: [
-          { name: "Python", icon: <FileCode2 size={15} /> },
-          { name: "Java", icon: <Coffee size={15} /> },
-          { name: "Kotlin", icon: <Smartphone size={15} /> },
-          { name: "C#", icon: <FileCode2 size={15} /> },
+          { name: "Git", icon: <SiGit size={15} color="#F05032" /> },
+          { name: "GitHub", icon: <SiGithub size={15} /> },
+          { name: "Docker", icon: <SiDocker size={15} color="#2496ED" /> },
+          { name: "Insomnia", icon: <SiInsomnia size={15} color="#A78BFA" /> },
+          { name: "Claude Code", icon: <SiClaude size={15} color="#D97757" /> },
         ],
       },
     ],
