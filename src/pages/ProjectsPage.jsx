@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowLeft, Wrench, ImageOff } from "lucide-react";
 import { projects } from "../projects";
 import { useState } from "react";
@@ -8,7 +8,7 @@ function ProjectSection({ project }) {
   const hasImages = project.images && project.images.length > 0;
 
   return (
-    <div className="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl p-6 sm:p-8 transition-all hover:border-zinc-700/80">
+    <div className="bg-zinc-900/30 border border-zinc-800 rounded-2xl p-6 sm:p-8 transition-colors hover:border-zinc-700">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-zinc-800/60">
         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
@@ -34,6 +34,8 @@ function ProjectSection({ project }) {
               <img
                 src={project.images[activeImg]}
                 alt={`${project.title} - image ${activeImg + 1}`}
+                width={1280}
+                height={720}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -43,14 +45,19 @@ function ProjectSection({ project }) {
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all ${activeImg === i
+                    aria-label={`Show image ${i + 1}`}
+                    aria-pressed={activeImg === i}
+                    className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-[border-color,opacity] ${activeImg === i
                       ? "border-zinc-300 opacity-100"
                       : "border-zinc-800 opacity-50 hover:opacity-80"
                       }`}
                   >
                     <img
                       src={img}
-                      alt={`thumb ${i + 1}`}
+                      alt=""
+                      width={80}
+                      height={56}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </button>
@@ -72,7 +79,7 @@ function ProjectSection({ project }) {
       {/* About the project */}
       <div className="mb-6">
         <h3 className="text-base font-semibold text-zinc-200 mb-4 pb-3 border-b border-zinc-800/60 flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+          <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
           About the project
         </h3>
         <div className="text-zinc-400 text-sm leading-relaxed flex flex-col gap-4 font-normal">
@@ -86,16 +93,16 @@ function ProjectSection({ project }) {
       {project.tools && project.tools.length > 0 && (
         <div className="mb-6">
           <h3 className="text-base font-semibold text-zinc-200 mb-4 pb-3 border-b border-zinc-800/60 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
             Tools & Technologies
           </h3>
           <div className="flex flex-wrap gap-2">
             {project.tools.map((tool) => (
               <div
                 key={tool}
-                className="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800/80 rounded-lg px-3.5 py-2 text-zinc-300 hover:text-zinc-100 hover:border-zinc-700 hover:bg-zinc-850 transition-all text-xs sm:text-sm font-medium"
+                className="flex items-center gap-2 bg-zinc-900/60 border border-zinc-800/80 rounded-lg px-3.5 py-2 text-zinc-300 hover:text-zinc-100 hover:border-zinc-700 hover:bg-zinc-800/60 transition-colors text-xs sm:text-sm font-medium"
               >
-                <Wrench size={13} className="text-zinc-400" />
+                <Wrench size={13} className="text-zinc-500" />
                 <span>{tool}</span>
               </div>
             ))}
@@ -107,7 +114,7 @@ function ProjectSection({ project }) {
       {project.contribution && (
         <div>
           <h3 className="text-base font-semibold text-zinc-200 mb-4 pb-3 border-b border-zinc-800/60 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
             My Contribution
           </h3>
           <div className="text-zinc-400 text-sm leading-relaxed flex flex-col gap-4 font-normal">
@@ -122,25 +129,23 @@ function ProjectSection({ project }) {
 }
 
 export default function ProjectsPage() {
-  const navigate = useNavigate();
-
   return (
-    <div className="min-h-screen bg-[#09090b] text-zinc-100 relative overflow-x-hidden selection:bg-violet-500/20 selection:text-violet-200">
+    <div className="min-h-screen bg-canvas text-zinc-100 relative overflow-x-hidden selection:bg-zinc-100 selection:text-zinc-900">
       {/* Background Subtle Gradient Grid */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.08),rgba(255,255,255,0))] pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(255,255,255,0.05),rgba(255,255,255,0))] pointer-events-none z-0" />
 
       <div className="max-w-4xl mx-auto px-6 py-16 relative z-10">
         {/* Back button */}
-        <button
-          onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-zinc-400 hover:text-zinc-100 transition-colors mb-12 group text-sm font-medium"
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-zinc-400 hover:text-zinc-100 transition-colors mb-12 group text-sm font-medium rounded-md"
         >
           <ArrowLeft
             size={16}
             className="group-hover:-translate-x-1 transition-transform"
           />
-          <span>Back to home</span>
-        </button>
+          <span>Back to Home</span>
+        </Link>
 
         {/* Page header */}
         <div className="mb-12">

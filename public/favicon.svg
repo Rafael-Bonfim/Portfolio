@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <!-- Fundo escuro arredondado -->
-  <rect width="32" height="32" rx="8" fill="#08060f"/>
-  
-  <!-- Borda roxa sutil -->
-  <rect width="32" height="32" rx="8" fill="none" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect width="32" height="32" rx="8" fill="#09090b"/>
+
+  <!-- Borda cinza sutil -->
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="7.25" fill="none" stroke="#3f3f46" stroke-width="1.5"/>
 
   <!-- Símbolo </> centralizado -->
   <!-- < -->
-  <text x="3" y="22" font-family="monospace" font-size="14" font-weight="bold" fill="#a855f7">&lt;</text>
+  <text x="3" y="22" font-family="monospace" font-size="14" font-weight="bold" fill="#a1a1aa">&lt;</text>
   <!-- / -->
-  <text x="12" y="22" font-family="monospace" font-size="14" font-weight="bold" fill="#e2d9f3">/</text>
+  <text x="12" y="22" font-family="monospace" font-size="14" font-weight="bold" fill="#fafafa">/</text>
   <!-- > -->
-  <text x="19" y="22" font-family="monospace" font-size="14" font-weight="bold" fill="#a855f7">&gt;</text>
+  <text x="19" y="22" font-family="monospace" font-size="14" font-weight="bold" fill="#a1a1aa">&gt;</text>
 </svg>
