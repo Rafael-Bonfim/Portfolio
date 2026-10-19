@@ -6,17 +6,18 @@ Welcome to my personal portfolio repository! This project was developed to showc
 
 ## 📌 About the Project
 
-The website is a responsive, modern, and optimized **Single Page Application (SPA)** built with **React** and styled with **Tailwind CSS**. It features route-based navigation to view detailed information for each project individually and a responsive sidebar menu for smooth mobile navigation.
+The website is a responsive, modern, and optimized **Single Page Application (SPA)** built with **React** and styled with **Tailwind CSS**. It is available in English and Portuguese (the choice is saved in the browser, and the CV download follows the active language) and has a dedicated page with project details.
 
 ---
 
 ## 🚀 Technologies Used
 
 * **React.js** — The core library for building the user interface.
-* **React Router DOM** — Handles routing and project detail pages (`/` and `/projeto/:id`).
+* **React Router DOM** — Handles routing (`/` and `/projetos`).
 * **Tailwind CSS** — A utility-first CSS framework for a modern and responsive design.
 * **Vite** — Fast frontend build tool.
-* **Lucide React** — A package of minimal and optimized icons.
+* **Motion** — Scroll and reveal animations.
+* **Lucide React & React Icons** — Icons and technology logos.
 
 ---
 
@@ -24,14 +25,20 @@ The website is a responsive, modern, and optimized **Single Page Application (SP
 
 ```text
 src/
+ ├── components/             # Reusable UI pieces (language toggle, reveal animations, cards)
  ├── pages/
- │    └── ProjectDetail.jsx  # Details page for a specific project
- ├── projects.js             # Database/array containing project data and images
- ├── App.css                 # Global styles and Tailwind customizations
+ │    └── ProjectsPage.jsx   # Projects page with details for each project
+ ├── i18n.js                 # English and Portuguese texts
+ ├── projects.js             # Project data (bilingual) and images
+ ├── App.css                 # Global styles and Tailwind theme
  ├── App.jsx                 # Main component, containing routing and portfolio sections
- ├── index.css               # Main CSS entry point
  └── main.jsx                # React application entry point
+public/
+ ├── curriculo-en.pdf        # CV in English
+ └── curriculo-pt.pdf        # CV in Portuguese
 ```
+
+`vercel.json` rewrites every path to `index.html`, so opening `/projetos` directly works on Vercel.
 
 ---
 
