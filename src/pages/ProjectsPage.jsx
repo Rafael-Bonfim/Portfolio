@@ -120,7 +120,9 @@ export default function ProjectsPage() {
   const { t } = useLang();
 
   // The router keeps the previous scroll position; start this page at the top.
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="relative min-h-dvh overflow-x-hidden bg-canvas text-zinc-100 selection:bg-zinc-100 selection:text-zinc-900">
