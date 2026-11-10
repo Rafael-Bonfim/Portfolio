@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette: yellow field, ink, secondary ink, paper. Nothing else exists. */
+  /* Palette: night-navy surface, near-white contrast (text, lines, inverted blocks), muted text, raised panel. Nothing else exists. */
   --color-*: initial;
-  --color-field: #ffd23f;
-  --color-ink: #101114;
-  --color-ink-2: #3a3a36;
-  --color-paper: #fbfaf5;
+  --color-surface: #0e1b33;
+  --color-contrast: #f4f6fa;
+  --color-muted: #b8c4da;
+  --color-panel: #16264a;
 
   /* Shape rule: every corner is square (radius 0). The default radius scale is removed. */
   --radius-*: initial;
@@ -21,7 +21,7 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
@@ -36,14 +36,14 @@ body,
   padding: 0;
   overflow-x: hidden;
   font-family: var(--font-sans);
-  background-color: var(--color-field);
-  color: var(--color-ink);
+  background-color: var(--color-surface);
+  color: var(--color-contrast);
   -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
-  background: var(--color-ink);
-  color: var(--color-field);
+  background: var(--color-contrast);
+  color: var(--color-surface);
 }
 
 /* Condensed poster type for names and section titles. */
@@ -62,18 +62,18 @@ body,
   width: 10px;
   height: 10px;
   border: 2px solid currentColor;
-  background: var(--port-fill, var(--color-field));
+  background: var(--port-fill, var(--color-surface));
   pointer-events: none;
 }
 
-/* Focus: thick ink outline with offset; on the inverted section it turns yellow. */
+/* Focus: thick contrast outline with offset; inside the light (inverted) section it turns navy. */
 @layer base {
   :where(a, button):focus-visible {
-    outline: 3px solid var(--color-ink);
+    outline: 3px solid var(--color-contrast);
     outline-offset: 3px;
   }
   .invert-zone :where(a, button):focus-visible {
-    outline-color: var(--color-field);
+    outline-color: var(--color-surface);
   }
 }
 

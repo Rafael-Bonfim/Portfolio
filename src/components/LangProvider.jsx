@@ -46,7 +46,7 @@ export function LangToggle({ className = "" }) {
           onClick={() => setLang(code)}
           aria-pressed={lang === code}
           className={`min-h-8 px-2.5 uppercase tracking-wider ${
-            lang === code ? "bg-ink text-field" : "hover:bg-ink hover:text-field"
+            lang === code ? "bg-contrast text-surface" : "hover:bg-contrast hover:text-surface"
           }`}
         >
           {code}

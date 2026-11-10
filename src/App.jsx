@@ -99,7 +99,7 @@ const skills = {
 
 const gutter = "mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10";
 const sectionTitle = "display text-[clamp(2.75rem,7vw,6.5rem)] text-balance";
-const invertOnHover = "hover:bg-ink hover:text-field";
+const invertOnHover = "hover:bg-contrast hover:text-surface";
 
 // Ports sit centered on a node's 2px border.
 const port = {
@@ -151,11 +151,11 @@ function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-ink bg-field">
+    <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-contrast bg-surface">
       <div className={`flex h-14 items-stretch justify-between gap-4 ${gutter}`}>
         <a href="#home" className="display flex items-center gap-1.5 self-center text-3xl leading-none">
           RB
-          <span aria-hidden="true" className="size-2 bg-ink" />
+          <span aria-hidden="true" className="size-2 bg-contrast" />
         </a>
 
         <nav aria-label="Main" className="hidden items-stretch lg:flex">
@@ -165,7 +165,7 @@ function Header() {
               href={`#${id}`}
               aria-current={active === id ? "true" : undefined}
               className={`flex items-center px-3.5 text-sm font-medium focus-visible:-outline-offset-4 ${
-                active === id ? "bg-ink text-field" : invertOnHover
+                active === id ? "bg-contrast text-surface" : invertOnHover
               }`}
             >
               {t.nav[id]}
@@ -178,8 +178,8 @@ function Header() {
           <button
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
-            className={`flex size-9 items-center justify-center border-2 border-ink lg:hidden ${
-              menuOpen ? "bg-ink text-field" : invertOnHover
+            className={`flex size-9 items-center justify-center border-2 border-contrast lg:hidden ${
+              menuOpen ? "bg-contrast text-surface" : invertOnHover
             }`}
             aria-label={menuOpen ? t.menuClose : t.menuOpen}
             aria-expanded={menuOpen}
@@ -192,19 +192,19 @@ function Header() {
       <nav
         inert={!menuOpen}
         aria-label="Mobile"
-        className={`invert-zone absolute inset-x-0 top-full bg-ink text-field transition-[opacity,transform] duration-200 lg:hidden ${
+        className={`invert-zone absolute inset-x-0 top-full bg-contrast text-surface transition-[opacity,transform] duration-200 lg:hidden ${
           menuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"
         }`}
       >
         <ul className={`py-3 ${gutter}`}>
           {sectionIds.map((id, i) => (
-            <li key={id} className="border-b border-field/25 last:border-b-0">
+            <li key={id} className="border-b border-surface/25 last:border-b-0">
               <a
                 href={`#${id}`}
                 onClick={() => setMenuOpen(false)}
                 aria-current={active === id ? "true" : undefined}
                 className={`display flex items-baseline justify-between px-2 py-3 text-[2.5rem] focus-visible:-outline-offset-4 ${
-                  active === id ? "bg-field text-ink" : "hover:bg-field hover:text-ink"
+                  active === id ? "bg-surface text-contrast" : "hover:bg-surface hover:text-contrast"
                 }`}
               >
                 {t.nav[id]}
@@ -226,7 +226,7 @@ function Hero() {
     {
       href: "#projects",
       label: t.hero.projects,
-      className: "border-ink bg-ink text-field hover:bg-ink-2 hover:border-ink-2",
+      className: "border-contrast bg-contrast text-surface hover:bg-muted hover:border-muted",
     },
     {
       href: t.hero.cvFile,
@@ -236,7 +236,7 @@ function Hero() {
           <Download size={16} aria-hidden="true" /> {t.hero.cv}
         </>
       ),
-      className: `border-ink bg-paper ${invertOnHover}`,
+      className: `border-contrast bg-panel ${invertOnHover}`,
     },
     {
       href: "#contact",
@@ -245,26 +245,35 @@ function Hero() {
           {t.hero.contact} <ArrowRight size={16} aria-hidden="true" />
         </>
       ),
-      className: `border-dashed border-ink ${invertOnHover}`,
+      className: `border-dashed border-contrast ${invertOnHover}`,
     },
   ];
 
   return (
     <section id="home" className={`scroll-mt-14 pt-20 pb-20 lg:pt-24 lg:pb-28 ${gutter}`}>
-      <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-x-4">
-        <motion.h1
-          {...appear(0)}
-          className="display text-[min(calc((100vw-2rem)/5.3),16rem)] sm:text-[calc((100vw-3rem)/5.3)] lg:text-[min(calc((100vw-5rem)/5.3),16rem)] lg:col-span-12 lg:col-start-1 lg:row-start-1"
-        >
-          <span className="block whitespace-nowrap">Rafael Lopes</span>
-          <span className="block whitespace-nowrap text-right">Bonfim</span>
-        </motion.h1>
+      {/* Name + intro on the left; photo node wired to the CTAs on the right (single column below xl). */}
+      <div className="grid grid-cols-1 gap-y-14 xl:grid-cols-[minmax(0,1fr)_600px] xl:gap-x-16">
+        <div className="@container xl:self-center">
+          {/* sized from the column width so "Rafael Lopes" always fills it without overflowing */}
+          <motion.h1 {...appear(0)} className="display text-[18.5cqw]">
+            <span className="block whitespace-nowrap">Rafael Lopes</span>
+            <span className="block whitespace-nowrap">Bonfim</span>
+          </motion.h1>
 
-        {/* Photo node wired to the three CTA nodes */}
-        <div className="relative order-2 lg:order-none lg:col-span-6 lg:col-start-7 lg:row-span-2 lg:row-start-1 lg:pt-[clamp(3rem,6.5vw,7rem)]">
+          <MotionDiv {...appear(0.45)} className="mt-10">
+            <p className="relative inline-flex items-center gap-2 border-2 border-contrast bg-panel px-3 py-1.5 font-mono text-sm font-medium">
+              <GraduationCap size={16} aria-hidden="true" />
+              {t.hero.badge}
+              <Port at="right" />
+            </p>
+            <p className="mt-5 max-w-[44ch] text-lg leading-relaxed text-pretty text-muted">{t.hero.intro}</p>
+          </MotionDiv>
+        </div>
+
+        <div className="relative">
           <MotionDiv
             {...appear(0.2)}
-            className="relative ml-6 -mt-[6vw] w-[54%] max-w-[300px] border-2 border-ink bg-paper p-1.5 lg:mx-auto lg:mt-0 lg:w-[clamp(200px,19vw,290px)]"
+            className="relative ml-6 w-[54%] max-w-[300px] border-2 border-contrast bg-panel p-1.5 xl:mx-auto xl:w-[300px]"
           >
             <img
               src="/rafael.jpeg"
@@ -276,42 +285,42 @@ function Hero() {
             />
             <Port at="top" />
             <Port at="right" />
-            <Port at="bottom" className="hidden lg:block" />
-            <Port at="left" className="lg:hidden" />
+            <Port at="bottom" className="hidden xl:block" />
+            <Port at="left" className="xl:hidden" />
             {/* mobile: spine down the left; desktop: trunk down to the bus */}
-            <Wire onLoad delay={0.5} className="-left-[18px] top-1/2 -bottom-[34px] lg:hidden" />
-            <Wire onLoad delay={0.45} axis="x" className="-left-[18px] top-1/2 w-4 lg:hidden" />
-            <Wire onLoad delay={0.5} className="top-full left-1/2 hidden h-10 -translate-x-1/2 lg:block" />
+            <Wire onLoad delay={0.5} className="-left-[18px] top-1/2 -bottom-[34px] xl:hidden" />
+            <Wire onLoad delay={0.45} axis="x" className="-left-[18px] top-1/2 w-4 xl:hidden" />
+            <Wire onLoad delay={0.5} className="top-full left-1/2 hidden h-10 -translate-x-1/2 xl:block" />
           </MotionDiv>
 
-          <ul className="relative mt-8 ml-6 flex flex-col gap-3 lg:mx-0 lg:mt-10 lg:grid lg:grid-cols-3 lg:gap-3 lg:pt-6">
+          <ul className="relative mt-8 ml-6 flex flex-col gap-3 xl:mx-0 xl:mt-10 xl:grid xl:grid-cols-3 xl:gap-3 xl:pt-6">
             <Wire
               onLoad
               delay={0.75}
               axis="x"
-              className="top-0 left-[calc((100%-1.5rem)/6)] right-[calc((100%-1.5rem)/6)] hidden lg:block"
+              className="top-0 left-[calc((100%-1.5rem)/6)] right-[calc((100%-1.5rem)/6)] hidden xl:block"
             />
             {ctas.map((cta, i) => (
               <MotionLi key={cta.href} {...appear(0.9 + i * 0.12)} className="group relative">
                 {/* connector lights up (thicker) while its CTA is hovered or focused */}
                 <span
                   aria-hidden="true"
-                  className="absolute -top-6 left-1/2 hidden h-6 w-0.5 -translate-x-1/2 transition-transform duration-200 group-focus-within:scale-x-[2.5] group-hover:scale-x-[2.5] lg:block"
+                  className="absolute -top-6 left-1/2 hidden h-6 w-0.5 -translate-x-1/2 transition-transform duration-200 group-focus-within:scale-x-[2.5] group-hover:scale-x-[2.5] xl:block"
                 >
                   <Wire onLoad delay={0.85} className="inset-0" />
                 </span>
                 <span
                   aria-hidden="true"
-                  className="absolute top-1/2 -left-4 h-0.5 w-4 origin-left transition-transform duration-200 group-focus-within:scale-y-[2.5] group-hover:scale-y-[2.5] lg:hidden"
+                  className="absolute top-1/2 -left-4 h-0.5 w-4 origin-left transition-transform duration-200 group-focus-within:scale-y-[2.5] group-hover:scale-y-[2.5] xl:hidden"
                 >
                   <Wire onLoad axis="x" delay={0.8} className="inset-0" />
                 </span>
-                {i < ctas.length - 1 && <Wire onLoad delay={0.7} className="-left-4 top-0 -bottom-3 lg:hidden" />}
-                {i === ctas.length - 1 && <Wire onLoad delay={0.7} className="-left-4 top-0 h-1/2 lg:hidden" />}
+                {i < ctas.length - 1 && <Wire onLoad delay={0.7} className="-left-4 top-0 -bottom-3 xl:hidden" />}
+                {i === ctas.length - 1 && <Wire onLoad delay={0.7} className="-left-4 top-0 h-1/2 xl:hidden" />}
                 <a
                   href={cta.href}
                   download={cta.download || undefined}
-                  className={`flex min-h-12 items-center justify-center gap-2 border-2 px-4 py-3 text-[15px] font-semibold whitespace-nowrap lg:w-full ${cta.className}`}
+                  className={`flex min-h-12 items-center justify-center gap-2 border-2 px-4 py-3 text-[15px] font-semibold whitespace-nowrap xl:w-full ${cta.className}`}
                 >
                   {cta.label}
                 </a>
@@ -319,18 +328,6 @@ function Hero() {
             ))}
           </ul>
         </div>
-
-        <MotionDiv
-          {...appear(0.45)}
-          className="order-3 mt-12 lg:order-none lg:col-span-5 lg:col-start-1 lg:row-start-2 lg:mt-10 lg:self-end"
-        >
-          <p className="relative inline-flex items-center gap-2 border-2 border-ink bg-paper px-3 py-1.5 font-mono text-sm font-medium">
-            <GraduationCap size={16} aria-hidden="true" />
-            {t.hero.badge}
-            <Port at="right" />
-          </p>
-          <p className="mt-5 max-w-[44ch] text-lg leading-relaxed text-pretty text-ink-2">{t.hero.intro}</p>
-        </MotionDiv>
       </div>
     </section>
   );
@@ -341,14 +338,14 @@ function Experience() {
   const items = t.experience.items;
 
   return (
-    <section id="experience" className={`scroll-mt-14 border-t-2 border-ink py-20 lg:py-24 ${gutter}`}>
+    <section id="experience" className={`scroll-mt-14 border-t-2 border-contrast py-20 lg:py-24 ${gutter}`}>
       <h2 className={`${sectionTitle} mb-10 lg:mb-14`}>{t.experience.title}</h2>
 
       <div className="grid lg:grid-cols-[minmax(0,1fr)_3rem_minmax(0,1.9fr)]">
-        <div className="relative self-start border-2 border-ink bg-paper p-5">
+        <div className="relative self-start border-2 border-contrast bg-panel p-5">
           <p className="font-mono text-sm tabular-nums">04/2026 – 07/2026</p>
           <h3 className="mt-3 text-2xl leading-tight font-bold text-balance">{t.experience.role}</h3>
-          <p className="mt-1 text-ink-2">Goodblock Computadores</p>
+          <p className="mt-1 text-muted">Goodblock Computadores</p>
           <Wire axis="x" className="top-[22px] left-full hidden w-[calc(3rem+2px)] lg:block" />
           <Wire className="top-full left-3 h-14 lg:hidden" />
         </div>
@@ -358,9 +355,9 @@ function Experience() {
             <li key={i} className="relative">
               {i < items.length - 1 && <Wire delay={0.2} className="top-6 -bottom-10 -left-6" />}
               <Wire axis="x" head delay={0.35} className="top-6 -left-6 w-[calc(1.5rem-9px)]" />
-              <div className="border-2 border-ink p-4">
+              <div className="border-2 border-contrast p-4">
                 <h3 className="font-semibold">{item.title}</h3>
-                <p className="mt-1.5 max-w-[68ch] text-sm leading-relaxed text-pretty text-ink-2">{item.description}</p>
+                <p className="mt-1.5 max-w-[68ch] text-sm leading-relaxed text-pretty text-muted">{item.description}</p>
               </div>
             </li>
           ))}
@@ -376,7 +373,7 @@ function SkillList({ items, className = "" }) {
       {items.map((s) => (
         <li
           key={s.name}
-          className={`flex items-center gap-2 border border-ink bg-paper px-3 py-2 text-sm font-medium ${invertOnHover} focus-within:bg-ink focus-within:text-field`}
+          className={`flex items-center gap-2 border border-contrast bg-panel px-3 py-2 text-sm font-medium ${invertOnHover} focus-within:bg-contrast focus-within:text-surface`}
         >
           <span aria-hidden="true" className="text-base">
             {s.icon}
@@ -401,12 +398,12 @@ function Skills() {
   const toRail = <Wire axis="x" delay={0.4} className="top-1/2 left-full hidden w-[calc(2.5rem+2px)] lg:block" />;
 
   return (
-    <section id="skills" className={`scroll-mt-14 border-t-2 border-ink py-20 lg:py-28 ${gutter}`}>
+    <section id="skills" className={`scroll-mt-14 border-t-2 border-contrast py-20 lg:py-28 ${gutter}`}>
       <h2 className={`${sectionTitle} mb-12 max-w-[14ch] lg:mb-16`}>{t.skills.title}</h2>
 
-      <div className="grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-x-10">
+      <div className="grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-x-10">
         <div className="flex flex-col">
-          <div className="relative border-2 border-ink p-5 lg:p-6">
+          <div className="relative border-2 border-contrast p-5 lg:p-6">
             <h3 className={layerTitle}>{t.skills.frontend}</h3>
             <SkillList items={skills.frontend} />
             {toRail}
@@ -414,10 +411,10 @@ function Skills() {
 
           <Joint head />
 
-          <div className="relative border-2 border-ink p-5 lg:p-6">
+          <div className="relative border-2 border-contrast p-5 lg:p-6">
             <h3 className={layerTitle}>{t.skills.backend}</h3>
             <div className="grid md:grid-cols-[minmax(0,1fr)_3.5rem_minmax(0,1fr)]">
-              <div className="border border-ink p-4">
+              <div className="border border-contrast p-4">
                 <h4 className="mb-3 font-mono text-sm font-medium">{t.skills.apis}</h4>
                 <SkillList items={skills.apis} />
               </div>
@@ -425,7 +422,7 @@ function Skills() {
                 <Wire head className="top-0 left-8 h-[calc(100%-9px)] md:hidden" />
                 <Wire axis="x" head className="top-1/2 left-0 hidden w-[calc(100%-9px)] md:block" />
               </div>
-              <div className="border border-ink p-4">
+              <div className="border border-contrast p-4">
                 <h4 className="mb-3 font-mono text-sm font-medium">{t.skills.db}</h4>
                 <SkillList items={skills.db} />
               </div>
@@ -435,7 +432,7 @@ function Skills() {
 
           <Joint />
 
-          <div className="relative border-2 border-b-[10px] border-ink p-5 lg:p-6">
+          <div className="relative border-2 border-b-[10px] border-contrast p-5 lg:p-6">
             <h3 className={layerTitle}>{t.skills.languages}</h3>
             <SkillList items={skills.languages} />
             {toRail}
@@ -444,7 +441,7 @@ function Skills() {
 
         <Joint className="lg:hidden" />
 
-        <div className="flex flex-col border-2 border-ink p-5 lg:p-6">
+        <div className="flex flex-col border-2 border-contrast p-5 lg:p-6">
           <h3 className={layerTitle}>{t.skills.tools}</h3>
           <SkillList items={skills.tools} className="lg:flex-1 lg:flex-col lg:flex-nowrap lg:justify-between" />
         </div>
@@ -455,15 +452,15 @@ function Skills() {
 
 function Projects() {
   const { t } = useLang();
-  const mat = "relative bg-paper p-2 sm:p-3 [--port-fill:var(--color-ink)]";
+  const mat = "relative bg-panel p-2 sm:p-3 [--port-fill:var(--color-contrast)]";
   const zoom = "block w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]";
   const iconNode =
-    "flex size-14 shrink-0 items-center justify-center border-2 border-field text-field group-hover:bg-field group-hover:text-ink";
+    "flex size-14 shrink-0 items-center justify-center border-2 border-surface text-surface group-hover:bg-surface group-hover:text-contrast";
 
   return (
-    <section id="projects" className="invert-zone scroll-mt-14 bg-ink text-paper">
+    <section id="projects" className="invert-zone scroll-mt-14 bg-contrast text-panel">
       <div className={`py-20 lg:py-32 ${gutter}`}>
-        <h2 className={`${sectionTitle} text-field`}>{t.projects.title}</h2>
+        <h2 className={`${sectionTitle} text-surface`}>{t.projects.title}</h2>
         <p className="mt-6 max-w-[44ch] text-lg leading-relaxed text-pretty">{t.projects.intro}</p>
 
         <div className="mt-14 grid gap-16 lg:mt-20 lg:grid-cols-12 lg:gap-x-10">
@@ -482,7 +479,7 @@ function Projects() {
             </div>
             <div className="mt-6 flex items-start justify-between gap-6">
               <div>
-                <h3 className="display text-[clamp(2.75rem,6vw,5.5rem)] text-field">{t.projects.main}</h3>
+                <h3 className="display text-[clamp(2.75rem,6vw,5.5rem)] text-surface">{t.projects.main}</h3>
                 <p className="mt-3 max-w-[40ch] leading-relaxed">{t.projects.mainDesc}</p>
               </div>
               <span aria-hidden="true" className={iconNode}>
@@ -508,12 +505,12 @@ function Projects() {
                   className={`${zoom} aspect-[729/398]`}
                 />
               </div>
-              <Wire axis="x" className="top-1/2 right-full hidden w-10 text-field lg:block" />
-              <Port at="left" className="hidden text-field lg:block" />
+              <Wire axis="x" className="top-1/2 right-full hidden w-10 text-surface lg:block" />
+              <Port at="left" className="hidden text-surface lg:block" />
             </div>
             <div className="mt-5 flex items-start justify-between gap-4">
               <div>
-                <h3 className="display text-[clamp(2rem,3.4vw,3.25rem)] text-field">{t.projects.academic}</h3>
+                <h3 className="display text-[clamp(2rem,3.4vw,3.25rem)] text-surface">{t.projects.academic}</h3>
                 <p className="mt-3 leading-relaxed">{t.projects.academicDesc}</p>
               </div>
               <span aria-hidden="true" className={iconNode}>
@@ -535,15 +532,15 @@ function About() {
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-x-10">
         <h2 className={`${sectionTitle} lg:col-span-6 lg:col-start-7 lg:row-start-1`}>{t.about.title}</h2>
 
-        <div className="relative border-2 border-ink bg-field lg:col-span-5 lg:row-span-2 lg:row-start-1">
-          {/* duotone: grayscale photo multiplied over the yellow field */}
+        <div className="relative border-2 border-contrast bg-surface lg:col-span-5 lg:row-span-2 lg:row-start-1">
+          {/* duotone: grayscale photo screened over the navy surface (shadows go navy, highlights go white) */}
           <img
             src="/rafael2.JPG"
             alt={t.about.photoAlt}
             width={555}
             height={837}
             loading="lazy"
-            className="block aspect-[4/5] w-full object-cover contrast-125 grayscale mix-blend-multiply"
+            className="block aspect-[4/5] w-full object-cover contrast-125 grayscale mix-blend-screen"
           />
           <Port at="right" className="hidden lg:block" />
           <Port at="bottom" className="lg:hidden" />
@@ -554,13 +551,13 @@ function About() {
             text={t.about.p1}
             className="text-[clamp(1.5rem,2.5vw,2.25rem)] leading-[1.2] font-medium tracking-tight text-pretty"
           />
-          <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-pretty text-ink-2">{t.about.p2}</p>
+          <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-pretty text-muted">{t.about.p2}</p>
 
           <a
             href={INSTAGRAM}
             target="_blank"
             rel="noopener noreferrer"
-            className={`relative mt-10 inline-flex min-h-12 items-center gap-3 border-2 border-ink bg-paper px-5 py-3 font-semibold ${invertOnHover}`}
+            className={`relative mt-10 inline-flex min-h-12 items-center gap-3 border-2 border-contrast bg-panel px-5 py-3 font-semibold ${invertOnHover}`}
           >
             <SiInstagram size={18} aria-hidden="true" />
             {t.about.more}
@@ -588,13 +585,13 @@ function Contact() {
     }
   };
 
-  const social = `relative flex size-12 items-center justify-center border-2 border-ink bg-paper ${invertOnHover}`;
+  const social = `relative flex size-12 items-center justify-center border-2 border-contrast bg-panel ${invertOnHover}`;
   const link = (i) => (i > 0 ? <Wire axis="x" className="top-1/2 right-full w-3" /> : null);
 
   return (
-    <section id="contact" className={`scroll-mt-14 border-t-2 border-ink py-20 lg:py-28 ${gutter}`}>
+    <section id="contact" className={`scroll-mt-14 border-t-2 border-contrast py-20 lg:py-28 ${gutter}`}>
       <h2 className={sectionTitle}>{t.contact.title}</h2>
-      <p className="mt-5 max-w-[44ch] text-lg leading-relaxed text-ink-2">{t.contact.intro}</p>
+      <p className="mt-5 max-w-[44ch] text-lg leading-relaxed text-muted">{t.contact.intro}</p>
 
       <div className="relative mt-10 lg:mt-14">
         <a
@@ -610,8 +607,8 @@ function Contact() {
         <button
           type="button"
           onClick={copyEmail}
-          className={`relative inline-flex min-h-12 items-center gap-2 border-2 border-ink px-5 py-3 font-semibold ${
-            copied ? "bg-ink text-field" : `bg-paper ${invertOnHover}`
+          className={`relative inline-flex min-h-12 items-center gap-2 border-2 border-contrast px-5 py-3 font-semibold ${
+            copied ? "bg-contrast text-surface" : `bg-panel ${invertOnHover}`
           }`}
         >
           {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
@@ -642,10 +639,10 @@ function Home() {
   const { t } = useLang();
 
   return (
-    <div className="min-h-dvh overflow-x-hidden bg-field text-ink">
+    <div className="min-h-dvh overflow-x-hidden bg-surface text-contrast">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[80] focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-field"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[80] focus:bg-contrast focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-surface"
       >
         {t.skip}
       </a>
@@ -661,10 +658,10 @@ function Home() {
         <Contact />
       </main>
 
-      <footer className="border-t-2 border-ink">
+      <footer className="border-t-2 border-contrast">
         <div className={`flex flex-col gap-3 py-8 text-sm sm:flex-row sm:items-center sm:justify-between ${gutter}`}>
           <p className="font-medium">© {new Date().getFullYear()} Rafael Lopes Bonfim</p>
-          <p className="text-ink-2">{t.footer.built}</p>
+          <p className="text-muted">{t.footer.built}</p>
           <a href="#home" className="group inline-flex items-center gap-1.5 self-start font-medium hover:underline sm:self-auto">
             {t.footer.top}
             <ArrowUp size={14} aria-hidden="true" className="transition-transform group-hover:-translate-y-0.5" />
