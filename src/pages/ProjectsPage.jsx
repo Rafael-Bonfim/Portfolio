@@ -4,20 +4,13 @@ import { useEffect, useState } from "react";
 import { projects } from "../projects";
 import { useLang } from "../i18n";
 import { LangToggle } from "../components/LangProvider";
-import Reveal from "../components/Reveal";
+import Wire from "../components/Wire";
 
-function Block({ title, children }) {
-  return (
-    <div className="grid gap-4 border-t border-white/6 py-8 md:grid-cols-[220px_1fr] md:gap-10">
-      <h3 className="font-mono text-xs text-zinc-500">{title}</h3>
-      <div>{children}</div>
-    </div>
-  );
-}
+const gutter = "mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10";
 
 function Paragraphs({ items }) {
   return (
-    <div className="flex max-w-[65ch] flex-col gap-4 leading-relaxed text-pretty text-zinc-400">
+    <div className="flex max-w-[65ch] flex-col gap-4 leading-relaxed text-pretty text-ink-2">
       {items.map((p, i) => (
         <p key={i}>{p}</p>
       ))}
@@ -25,21 +18,37 @@ function Paragraphs({ items }) {
   );
 }
 
-function ProjectSection({ project, index }) {
+// A text node attached to the image node. `wire` draws the connector that leads into it.
+function Block({ title, wire, className = "", children }) {
+  return (
+    <div className={`relative border-2 border-ink p-5 sm:p-6 ${className}`}>
+      {wire}
+      <h3 className="display mb-4 text-[clamp(1.75rem,2.6vw,2.4rem)]">{title}</h3>
+      {children}
+    </div>
+  );
+}
+
+function ProjectSection({ project }) {
   const { lang, t } = useLang();
   const [activeImg, setActiveImg] = useState(0);
   const title = project.title[lang];
+  const hasThumbs = project.images?.length > 1;
+  // mobile: connector drops from the block above; desktop: it comes in from the image node on the left
+  const sideWire = (
+    <>
+      <Wire head className="bottom-[calc(100%+9px)] left-8 h-[calc(2.5rem-9px)] lg:hidden" />
+      <Wire axis="x" head className="top-8 right-[calc(100%+11px)] hidden w-[calc(3rem-9px)] lg:block" />
+    </>
+  );
 
   return (
-    <article className="rounded-4xl border border-white/7 bg-zinc-900/40 p-6 sm:p-10">
-      <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-        <div>
-          <p className="mb-3 font-mono text-xs text-zinc-300">{String(index + 1).padStart(2, "0")}</p>
-          <h2 className="text-3xl font-semibold tracking-[-0.03em] text-zinc-50 sm:text-4xl">{title}</h2>
-        </div>
+    <article className="mt-16 border-t-2 border-ink pt-10 lg:mt-20 lg:pt-14">
+      <div className="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <h2 className="display max-w-[16ch] text-[clamp(2.5rem,6vw,5.5rem)] text-balance">{title}</h2>
         <div className="flex flex-wrap items-center gap-2">
           {project.tags.map((tag) => (
-            <span key={tag} className="rounded-full border border-white/10 px-3 py-1 font-mono text-xs text-zinc-400">
+            <span key={tag} className="border border-ink px-2.5 py-1 font-mono text-sm">
               {tag}
             </span>
           ))}
@@ -48,70 +57,97 @@ function ProjectSection({ project, index }) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3.5 py-1 text-xs font-medium text-zinc-950 transition-colors hover:bg-white"
+              className="inline-flex min-h-10 items-center gap-2 border-2 border-ink bg-ink px-4 text-sm font-semibold text-field hover:border-ink-2 hover:bg-ink-2"
             >
-              <Github size={13} /> {t.projectPage.code}
+              <Github size={16} aria-hidden="true" /> {t.projectPage.code}
             </a>
           )}
         </div>
       </div>
 
-      {project.images?.length > 0 && (
-        <div className="mb-4">
-          <div className="mb-4 aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl shadow-black/80">
-            <img
-              src={project.images[activeImg]}
-              alt={`${title} - ${t.projectPage.image} ${activeImg + 1}`}
-              width={1280}
-              height={720}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          {project.images.length > 1 && (
-            <div className="flex flex-wrap gap-3">
-              {project.images.map((img, i) => (
-                <button
-                  key={img}
-                  type="button"
-                  onClick={() => setActiveImg(i)}
-                  aria-label={`${t.projectPage.showImage} ${i + 1}`}
-                  aria-pressed={activeImg === i}
-                  className={`h-14 w-20 overflow-hidden rounded-xl border-2 transition-[border-color,opacity] duration-200 ${
-                    activeImg === i ? "border-zinc-300 opacity-100" : "border-transparent opacity-50 hover:opacity-80"
-                  }`}
-                >
-                  <img src={img} alt="" width={80} height={56} loading="lazy" className="h-full w-full object-cover" />
-                </button>
-              ))}
-            </div>
+      <div className="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-x-12">
+        <div>
+          {project.images?.length > 0 && (
+            <>
+              <div className="relative border-2 border-ink bg-paper p-2 sm:p-3">
+                <img
+                  src={project.images[activeImg]}
+                  alt={`${title} - ${t.projectPage.image} ${activeImg + 1}`}
+                  width={1280}
+                  height={720}
+                  className="block aspect-video w-full object-cover object-top"
+                />
+                <span aria-hidden="true" className="port top-8 -right-[6px] hidden lg:block" />
+                <span aria-hidden="true" className="port -bottom-[6px] left-8 -translate-x-1/2" />
+              </div>
+
+              {hasThumbs && (
+                <div className="flex justify-center gap-6 pt-8">
+                  {project.images.map((img, i) => (
+                    <button
+                      key={img}
+                      type="button"
+                      onClick={() => setActiveImg(i)}
+                      aria-label={`${t.projectPage.showImage} ${i + 1}`}
+                      aria-pressed={activeImg === i}
+                      className={`group relative h-16 w-24 border-2 border-ink p-1 ${
+                        activeImg === i ? "bg-ink" : "bg-paper hover:bg-ink"
+                      }`}
+                    >
+                      <Wire className="-top-[34px] left-1/2 h-8 -translate-x-1/2" />
+                      <img
+                        src={img}
+                        alt=""
+                        width={88}
+                        height={56}
+                        loading="lazy"
+                        className={`h-full w-full object-cover transition-opacity duration-200 ${
+                          activeImg === i ? "opacity-100" : "opacity-60 group-hover:opacity-100"
+                        }`}
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+
+          <Block
+            title={t.projectPage.about}
+            className="mt-10"
+            wire={
+              <Wire
+                head
+                className={`left-8 bottom-[calc(100%+9px)] ${
+                  hasThumbs ? "h-[calc(8.5rem-9px)]" : "h-[calc(2.5rem-9px)]"
+                }`}
+              />
+            }
+          >
+            <Paragraphs items={project.description[lang]} />
+          </Block>
+        </div>
+
+        <div className="flex flex-col gap-10 pt-10 lg:pt-0">
+          {project.tools?.length > 0 && (
+            <Block title={t.projectPage.tools} className="bg-paper" wire={sideWire}>
+              <ul className="flex flex-wrap gap-2">
+                {project.tools.map((tool) => (
+                  <li key={tool} className="border border-ink bg-field px-3 py-1.5 font-mono text-sm font-medium">
+                    {tool}
+                  </li>
+                ))}
+              </ul>
+            </Block>
+          )}
+
+          {project.contribution && (
+            <Block title={t.projectPage.contribution} className="bg-paper" wire={sideWire}>
+              <Paragraphs items={project.contribution[lang]} />
+            </Block>
           )}
         </div>
-      )}
-
-      <Block title={t.projectPage.about}>
-        <Paragraphs items={project.description[lang]} />
-      </Block>
-
-      {project.tools?.length > 0 && (
-        <Block title={t.projectPage.tools}>
-          <div className="flex flex-wrap gap-2">
-            {project.tools.map((tool) => (
-              <span
-                key={tool}
-                className="rounded-xl border border-white/6 bg-zinc-950/50 px-3.5 py-2 text-sm font-medium text-zinc-300"
-              >
-                {tool}
-              </span>
-            ))}
-          </div>
-        </Block>
-      )}
-
-      {project.contribution && (
-        <Block title={t.projectPage.contribution}>
-          <Paragraphs items={project.contribution[lang]} />
-        </Block>
-      )}
+      </div>
     </article>
   );
 }
@@ -125,36 +161,28 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <div className="relative min-h-dvh overflow-x-hidden bg-canvas text-zinc-100 selection:bg-zinc-100 selection:text-zinc-900">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(255,255,255,0.05),rgba(255,255,255,0))]" />
-
-      <div className="relative z-10 mx-auto w-full max-w-[1200px] px-[clamp(1.25rem,4vw,5rem)] py-10">
-        <div className="mb-20 flex items-center justify-between">
+    <div className="min-h-dvh overflow-x-hidden bg-field text-ink">
+      <header className="border-b-2 border-ink">
+        <div className={`flex h-14 items-center justify-between ${gutter}`}>
           <Link
             to="/"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/70 px-4 py-2 text-sm font-medium text-zinc-300 transition-colors hover:text-zinc-50"
+            className="group inline-flex min-h-9 items-center gap-2 border-2 border-ink px-3 text-sm font-semibold hover:bg-ink hover:text-field"
           >
-            <ArrowLeft size={15} className="transition-transform group-hover:-translate-x-0.5" />
+            <ArrowLeft size={16} aria-hidden="true" className="transition-transform group-hover:-translate-x-0.5" />
             {t.projectPage.back}
           </Link>
           <LangToggle />
         </div>
+      </header>
 
-        <Reveal className="mb-14">
-          <h1 className="mb-4 text-[clamp(2.75rem,7vw,5rem)] leading-[0.95] font-semibold tracking-[-0.04em] text-zinc-50">
-            {t.projectPage.title}
-          </h1>
-          <p className="max-w-md leading-relaxed text-zinc-400">{t.projectPage.intro}</p>
-        </Reveal>
+      <main className={`pt-14 pb-24 lg:pt-20 lg:pb-32 ${gutter}`}>
+        <h1 className="display text-[clamp(3.5rem,13vw,12rem)]">{t.projectPage.title}</h1>
+        <p className="mt-6 max-w-[44ch] text-lg leading-relaxed text-pretty text-ink-2">{t.projectPage.intro}</p>
 
-        <div className="flex flex-col gap-10">
-          {projects.map((project, i) => (
-            <Reveal key={project.id}>
-              <ProjectSection project={project} index={i} />
-            </Reveal>
-          ))}
-        </div>
-      </div>
+        {projects.map((project) => (
+          <ProjectSection key={project.id} project={project} />
+        ))}
+      </main>
     </div>
   );
 }
