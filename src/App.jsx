@@ -494,17 +494,23 @@ function Projects() {
             rel="noopener noreferrer"
             className="group block lg:col-span-4 lg:mt-[clamp(6rem,13vw,13rem)]"
           >
-            <div className={mat}>
-              <div className="overflow-hidden">
-                <img
-                  src="/images/tcc/nota-despesa.png"
-                  alt=""
-                  width={729}
-                  height={398}
-                  loading="lazy"
-                  className={`${zoom} aspect-[729/398]`}
-                />
-              </div>
+            {/* the two schools behind the academic work, stacked in one frame */}
+            <div className={`${mat} grid gap-2 sm:gap-3`}>
+              {[
+                { src: "/images/Fatec.webp", height: 334, position: "object-[35%_50%]" },
+                { src: "/images/Univap.webp", height: 573, position: "object-center" },
+              ].map((img) => (
+                <div key={img.src} className="overflow-hidden">
+                  <img
+                    src={img.src}
+                    alt=""
+                    width={860}
+                    height={img.height}
+                    loading="lazy"
+                    className={`${zoom} aspect-video ${img.position}`}
+                  />
+                </div>
+              ))}
               <Wire axis="x" className="top-1/2 right-full hidden w-10 text-surface lg:block" />
               <Port at="left" className="hidden text-surface lg:block" />
             </div>
