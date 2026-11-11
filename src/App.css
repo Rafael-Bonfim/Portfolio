@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette: night-navy surface, near-white contrast (text, lines, inverted blocks), muted text, raised panel. Nothing else exists. */
+  /* Palette: night-navy surface, near-white contrast (text, lines, inverted blocks), muted text, black ink (node fills, frames, header/footer). Nothing else exists. */
   --color-*: initial;
   --color-surface: #0e1b33;
   --color-contrast: #f4f6fa;
   --color-muted: #b8c4da;
-  --color-panel: #16264a;
+  --color-ink: #0b0c10;
 
   /* Shape rule: every corner is square (radius 0). The default radius scale is removed. */
   --radius-*: initial;

@@ -69,7 +69,7 @@ function ProjectSection({ project }) {
         <div>
           {project.images?.length > 0 && (
             <>
-              <div className="relative border-2 border-contrast bg-panel p-2 sm:p-3">
+              <div className="relative border-2 border-contrast bg-ink p-2 sm:p-3">
                 <img
                   src={project.images[activeImg]}
                   alt={`${title} - ${t.projectPage.image} ${activeImg + 1}`}
@@ -91,7 +91,7 @@ function ProjectSection({ project }) {
                       aria-label={`${t.projectPage.showImage} ${i + 1}`}
                       aria-pressed={activeImg === i}
                       className={`group relative h-16 w-24 border-2 border-contrast p-1 ${
-                        activeImg === i ? "bg-contrast" : "bg-panel hover:bg-contrast"
+                        activeImg === i ? "bg-contrast" : "bg-ink hover:bg-contrast"
                       }`}
                     >
                       <Wire className="-top-[34px] left-1/2 h-8 -translate-x-1/2" />
@@ -114,7 +114,7 @@ function ProjectSection({ project }) {
 
           <Block
             title={t.projectPage.about}
-            className="mt-10"
+            className="mt-10 bg-ink"
             wire={
               <Wire
                 head
@@ -130,7 +130,7 @@ function ProjectSection({ project }) {
 
         <div className="flex flex-col gap-10 pt-10 lg:pt-0">
           {project.tools?.length > 0 && (
-            <Block title={t.projectPage.tools} className="bg-panel" wire={sideWire}>
+            <Block title={t.projectPage.tools} className="bg-ink" wire={sideWire}>
               <ul className="flex flex-wrap gap-2">
                 {project.tools.map((tool) => (
                   <li key={tool} className="border border-contrast bg-surface px-3 py-1.5 font-mono text-sm font-medium">
@@ -142,7 +142,7 @@ function ProjectSection({ project }) {
           )}
 
           {project.contribution && (
-            <Block title={t.projectPage.contribution} className="bg-panel" wire={sideWire}>
+            <Block title={t.projectPage.contribution} className="bg-ink" wire={sideWire}>
               <Paragraphs items={project.contribution[lang]} />
             </Block>
           )}
@@ -162,7 +162,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-dvh overflow-x-hidden bg-surface text-contrast">
-      <header className="border-b-2 border-contrast">
+      <header className="border-b-2 border-contrast bg-ink">
         <div className={`flex h-14 items-center justify-between ${gutter}`}>
           <Link
             to="/"

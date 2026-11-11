@@ -59,41 +59,42 @@ const GITHUB_ACADEMIC = "https://github.com/Projetos-Faculdade-Rafael";
 
 const sectionIds = ["home", "experience", "skills", "projects", "about", "contact"];
 
+// Brand colors on the icons; monochrome brands (Next.js, Express, GitHub...) follow the text color.
 const skills = {
   frontend: [
-    { name: "React", icon: <SiReact /> },
+    { name: "React", icon: <SiReact color="#61DAFB" /> },
     { name: "Next.js", icon: <SiNextdotjs /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss /> },
-    { name: "Vite", icon: <SiVite /> },
-    { name: "HTML5", icon: <SiHtml5 /> },
-    { name: "CSS3", icon: <SiCss /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss color="#06B6D4" /> },
+    { name: "Vite", icon: <SiVite color="#646CFF" /> },
+    { name: "HTML5", icon: <SiHtml5 color="#E34F26" /> },
+    { name: "CSS3", icon: <SiCss color="#1572B6" /> },
   ],
   apis: [
-    { name: "Node.js", icon: <SiNodedotjs /> },
+    { name: "Node.js", icon: <SiNodedotjs color="#5FA04E" /> },
     { name: "Express.js", icon: <SiExpress /> },
     { name: "Flask", icon: <SiFlask /> },
     { name: "REST APIs", icon: <TbApi /> },
     { name: "JWT", icon: <SiJsonwebtokens /> },
   ],
   db: [
-    { name: "MySQL", icon: <SiMysql /> },
-    { name: "MongoDB", icon: <SiMongodb /> },
+    { name: "MySQL", icon: <SiMysql color="#4479A1" /> },
+    { name: "MongoDB", icon: <SiMongodb color="#47A248" /> },
     { name: "Prisma", icon: <SiPrisma /> },
   ],
   languages: [
-    { name: "JavaScript", icon: <SiJavascript /> },
-    { name: "TypeScript", icon: <SiTypescript /> },
-    { name: "Python", icon: <SiPython /> },
-    { name: "Java", icon: <FaJava /> },
-    { name: "Kotlin", icon: <SiKotlin /> },
-    { name: "C#", icon: <TbBrandCSharp /> },
+    { name: "JavaScript", icon: <SiJavascript color="#F7DF1E" /> },
+    { name: "TypeScript", icon: <SiTypescript color="#3178C6" /> },
+    { name: "Python", icon: <SiPython color="#3776AB" /> },
+    { name: "Java", icon: <FaJava color="#E76F00" /> },
+    { name: "Kotlin", icon: <SiKotlin color="#7F52FF" /> },
+    { name: "C#", icon: <TbBrandCSharp color="#9B4F96" /> },
   ],
   tools: [
-    { name: "Git", icon: <SiGit /> },
+    { name: "Git", icon: <SiGit color="#F05032" /> },
     { name: "GitHub", icon: <SiGithub /> },
-    { name: "Docker", icon: <SiDocker /> },
-    { name: "Insomnia", icon: <SiInsomnia /> },
-    { name: "Claude Code", icon: <SiClaude /> },
+    { name: "Docker", icon: <SiDocker color="#2496ED" /> },
+    { name: "Insomnia", icon: <SiInsomnia color="#A78BFA" /> },
+    { name: "Claude Code", icon: <SiClaude color="#D97757" /> },
   ],
 };
 
@@ -151,7 +152,7 @@ function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-contrast bg-surface">
+    <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-contrast bg-ink">
       <div className={`flex h-14 items-stretch justify-between gap-4 ${gutter}`}>
         <a href="#home" className="display flex items-center gap-1.5 self-center text-3xl leading-none">
           RB
@@ -236,7 +237,7 @@ function Hero() {
           <Download size={16} aria-hidden="true" /> {t.hero.cv}
         </>
       ),
-      className: `border-contrast bg-panel ${invertOnHover}`,
+      className: `border-contrast bg-ink ${invertOnHover}`,
     },
     {
       href: "#contact",
@@ -261,7 +262,7 @@ function Hero() {
           </motion.h1>
 
           <MotionDiv {...appear(0.45)} className="mt-10">
-            <p className="relative inline-flex items-center gap-2 border-2 border-contrast bg-panel px-3 py-1.5 font-mono text-sm font-medium">
+            <p className="relative inline-flex items-center gap-2 border-2 border-contrast bg-ink px-3 py-1.5 font-mono text-sm font-medium">
               <GraduationCap size={16} aria-hidden="true" />
               {t.hero.badge}
               <Port at="right" />
@@ -273,7 +274,7 @@ function Hero() {
         <div className="relative">
           <MotionDiv
             {...appear(0.2)}
-            className="relative ml-6 w-[54%] max-w-[300px] border-2 border-contrast bg-panel p-1.5 xl:mx-auto xl:w-[300px]"
+            className="relative ml-6 w-[54%] max-w-[300px] border-2 border-contrast bg-ink p-1.5 xl:mx-auto xl:w-[300px]"
           >
             <img
               src="/rafael.jpeg"
@@ -342,7 +343,7 @@ function Experience() {
       <h2 className={`${sectionTitle} mb-10 lg:mb-14`}>{t.experience.title}</h2>
 
       <div className="grid lg:grid-cols-[minmax(0,1fr)_3rem_minmax(0,1.9fr)]">
-        <div className="relative self-start border-2 border-contrast bg-panel p-5">
+        <div className="relative self-start border-2 border-contrast bg-ink p-5">
           <p className="font-mono text-sm tabular-nums">04/2026 – 07/2026</p>
           <h3 className="mt-3 text-2xl leading-tight font-bold text-balance">{t.experience.role}</h3>
           <p className="mt-1 text-muted">Goodblock Computadores</p>
@@ -355,7 +356,7 @@ function Experience() {
             <li key={i} className="relative">
               {i < items.length - 1 && <Wire delay={0.2} className="top-6 -bottom-10 -left-6" />}
               <Wire axis="x" head delay={0.35} className="top-6 -left-6 w-[calc(1.5rem-9px)]" />
-              <div className="border-2 border-contrast p-4">
+              <div className="border-2 border-contrast bg-ink p-4">
                 <h3 className="font-semibold">{item.title}</h3>
                 <p className="mt-1.5 max-w-[68ch] text-sm leading-relaxed text-pretty text-muted">{item.description}</p>
               </div>
@@ -373,7 +374,7 @@ function SkillList({ items, className = "" }) {
       {items.map((s) => (
         <li
           key={s.name}
-          className={`flex items-center gap-2 border border-contrast bg-panel px-3 py-2 text-sm font-medium ${invertOnHover} focus-within:bg-contrast focus-within:text-surface`}
+          className={`flex items-center gap-2 border border-contrast bg-surface px-3 py-2 text-sm font-medium ${invertOnHover} focus-within:bg-contrast focus-within:text-surface`}
         >
           <span aria-hidden="true" className="text-base">
             {s.icon}
@@ -403,7 +404,7 @@ function Skills() {
 
       <div className="grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-x-10">
         <div className="flex flex-col">
-          <div className="relative border-2 border-contrast p-5 lg:p-6">
+          <div className="relative border-2 border-contrast bg-ink p-5 lg:p-6">
             <h3 className={layerTitle}>{t.skills.frontend}</h3>
             <SkillList items={skills.frontend} />
             {toRail}
@@ -411,7 +412,7 @@ function Skills() {
 
           <Joint head />
 
-          <div className="relative border-2 border-contrast p-5 lg:p-6">
+          <div className="relative border-2 border-contrast bg-ink p-5 lg:p-6">
             <h3 className={layerTitle}>{t.skills.backend}</h3>
             <div className="grid md:grid-cols-[minmax(0,1fr)_3.5rem_minmax(0,1fr)]">
               <div className="border border-contrast p-4">
@@ -432,7 +433,7 @@ function Skills() {
 
           <Joint />
 
-          <div className="relative border-2 border-b-[10px] border-contrast p-5 lg:p-6">
+          <div className="relative border-2 border-b-[10px] border-contrast bg-ink p-5 lg:p-6">
             <h3 className={layerTitle}>{t.skills.languages}</h3>
             <SkillList items={skills.languages} />
             {toRail}
@@ -441,7 +442,7 @@ function Skills() {
 
         <Joint className="lg:hidden" />
 
-        <div className="flex flex-col border-2 border-contrast p-5 lg:p-6">
+        <div className="flex flex-col border-2 border-contrast bg-ink p-5 lg:p-6">
           <h3 className={layerTitle}>{t.skills.tools}</h3>
           <SkillList items={skills.tools} className="lg:flex-1 lg:flex-col lg:flex-nowrap lg:justify-between" />
         </div>
@@ -452,13 +453,13 @@ function Skills() {
 
 function Projects() {
   const { t } = useLang();
-  const mat = "relative bg-panel p-2 sm:p-3 [--port-fill:var(--color-contrast)]";
+  const mat = "relative bg-ink p-2 sm:p-3 [--port-fill:var(--color-contrast)]";
   const zoom = "block w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]";
   const iconNode =
     "flex size-14 shrink-0 items-center justify-center border-2 border-surface text-surface group-hover:bg-surface group-hover:text-contrast";
 
   return (
-    <section id="projects" className="invert-zone scroll-mt-14 bg-contrast text-panel">
+    <section id="projects" className="invert-zone scroll-mt-14 bg-contrast text-ink">
       <div className={`py-20 lg:py-32 ${gutter}`}>
         <h2 className={`${sectionTitle} text-surface`}>{t.projects.title}</h2>
         <p className="mt-6 max-w-[44ch] text-lg leading-relaxed text-pretty">{t.projects.intro}</p>
@@ -538,15 +539,14 @@ function About() {
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-x-10">
         <h2 className={`${sectionTitle} lg:col-span-6 lg:col-start-7 lg:row-start-1`}>{t.about.title}</h2>
 
-        <div className="relative border-2 border-contrast bg-surface lg:col-span-5 lg:row-span-2 lg:row-start-1">
-          {/* duotone: grayscale photo screened over the navy surface (shadows go navy, highlights go white) */}
+        <div className="relative border-2 border-contrast bg-ink p-1.5 lg:col-span-5 lg:row-span-2 lg:row-start-1">
           <img
             src="/rafael2.JPG"
             alt={t.about.photoAlt}
             width={555}
             height={837}
             loading="lazy"
-            className="block aspect-[4/5] w-full object-cover contrast-125 grayscale mix-blend-screen"
+            className="block aspect-[4/5] w-full object-cover"
           />
           <Port at="right" className="hidden lg:block" />
           <Port at="bottom" className="lg:hidden" />
@@ -563,7 +563,7 @@ function About() {
             href={INSTAGRAM}
             target="_blank"
             rel="noopener noreferrer"
-            className={`relative mt-10 inline-flex min-h-12 items-center gap-3 border-2 border-contrast bg-panel px-5 py-3 font-semibold ${invertOnHover}`}
+            className={`relative mt-10 inline-flex min-h-12 items-center gap-3 border-2 border-contrast bg-ink px-5 py-3 font-semibold ${invertOnHover}`}
           >
             <SiInstagram size={18} aria-hidden="true" />
             {t.about.more}
@@ -591,7 +591,7 @@ function Contact() {
     }
   };
 
-  const social = `relative flex size-12 items-center justify-center border-2 border-contrast bg-panel ${invertOnHover}`;
+  const social = `relative flex size-12 items-center justify-center border-2 border-contrast bg-ink ${invertOnHover}`;
   const link = (i) => (i > 0 ? <Wire axis="x" className="top-1/2 right-full w-3" /> : null);
 
   return (
@@ -614,7 +614,7 @@ function Contact() {
           type="button"
           onClick={copyEmail}
           className={`relative inline-flex min-h-12 items-center gap-2 border-2 border-contrast px-5 py-3 font-semibold ${
-            copied ? "bg-contrast text-surface" : `bg-panel ${invertOnHover}`
+            copied ? "bg-contrast text-surface" : `bg-ink ${invertOnHover}`
           }`}
         >
           {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
@@ -664,7 +664,7 @@ function Home() {
         <Contact />
       </main>
 
-      <footer className="border-t-2 border-contrast">
+      <footer className="border-t-2 border-contrast bg-ink">
         <div className={`flex flex-col gap-3 py-8 text-sm sm:flex-row sm:items-center sm:justify-between ${gutter}`}>
           <p className="font-medium">© {new Date().getFullYear()} Rafael Lopes Bonfim</p>
           <p className="text-muted">{t.footer.built}</p>
