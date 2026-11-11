@@ -161,11 +161,6 @@ function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b-2 border-contrast bg-ink">
       <div className={`flex h-14 items-stretch justify-between gap-4 ${gutter}`}>
-        <a href="#home" className="display flex items-center gap-1.5 self-center text-3xl leading-none">
-          RB
-          <span aria-hidden="true" className="size-2 bg-contrast" />
-        </a>
-
         <nav aria-label="Main" className="hidden items-stretch lg:flex">
           {sectionIds.map((id) => (
             <a
@@ -181,7 +176,7 @@ function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
           <LangToggle />
           <button
             type="button"
