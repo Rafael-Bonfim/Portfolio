@@ -39,9 +39,10 @@ import {
   SiInsomnia,
   SiClaude,
   SiInstagram,
+  SiWebmin,
 } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
-import { TbBrandCSharp, TbApi } from "react-icons/tb";
+import { FaJava, FaAws } from "react-icons/fa";
+import { TbBrandCSharp, TbApi, TbActivityHeartbeat } from "react-icons/tb";
 import ProjectsPage from "./pages/ProjectsPage";
 import ScrollRevealText from "./components/ScrollRevealText";
 import Wire from "./components/Wire";
@@ -96,6 +97,10 @@ const skills = {
     { name: "Docker", icon: <SiDocker color="#2496ED" /> },
     { name: "Insomnia", icon: <SiInsomnia color="#A78BFA" /> },
     { name: "Claude Code", icon: <SiClaude color="#D97757" /> },
+    { name: "AWS", icon: <FaAws color="#FF9900" /> },
+    // no Zabbix glyph in react-icons: a monitoring pulse in Zabbix red stands in
+    { name: "Zabbix", icon: <TbActivityHeartbeat color="#D40000" /> },
+    { name: "Webmin", icon: <SiWebmin color="#7DA0D0" /> },
   ],
 };
 const allSkills = Object.values(skills).flat();

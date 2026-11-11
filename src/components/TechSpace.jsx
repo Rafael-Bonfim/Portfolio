@@ -1,17 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "motion/react";
 
-// Static starfield: tiled dots in the contrast color, no extra elements, no animation cost.
-const star = (x, y, a) =>
-  `radial-gradient(1.5px 1.5px at ${x} ${y}, color-mix(in srgb, var(--color-contrast) ${a}%, transparent) 50%, transparent 51%)`;
-const STARFIELD = {
-  backgroundImage: [
-    star("12%", "18%", 90), star("47%", "64%", 70), star("83%", "31%", 85), star("29%", "86%", 60),
-    star("64%", "9%", 75), star("6%", "57%", 55), star("91%", "78%", 65), star("38%", "40%", 45),
-  ].join(","),
-  backgroundSize: "220px 160px, 220px 160px, 220px 160px, 220px 160px, 310px 230px, 310px 230px, 310px 230px, 310px 230px",
-};
-
 // Small seeded PRNG so the starting layout is the same on every load.
 function seeded(seed) {
   return () => {
@@ -119,7 +108,6 @@ export default function TechSpace({ items, className = "" }) {
       ref={boxRef}
       aria-hidden="true"
       className={`relative overflow-hidden bg-ink text-contrast ${className}`}
-      style={STARFIELD}
     >
       {items.map((item, i) => (
         <span
