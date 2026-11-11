@@ -45,6 +45,7 @@ import { TbBrandCSharp, TbApi } from "react-icons/tb";
 import ProjectsPage from "./pages/ProjectsPage";
 import ScrollRevealText from "./components/ScrollRevealText";
 import Wire from "./components/Wire";
+import TechSpace from "./components/TechSpace";
 import LangProvider, { LangToggle } from "./components/LangProvider";
 import { useLang } from "./i18n";
 
@@ -97,6 +98,7 @@ const skills = {
     { name: "Claude Code", icon: <SiClaude color="#D97757" /> },
   ],
 };
+const allSkills = Object.values(skills).flat();
 
 const gutter = "mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10";
 const sectionTitle = "display text-[clamp(2.75rem,7vw,6.5rem)] text-balance";
@@ -467,16 +469,7 @@ function Projects() {
         <div className="mt-14 grid gap-16 lg:mt-20 lg:grid-cols-12 lg:gap-x-10">
           <Link to="/projetos" className="group block lg:col-span-8">
             <div className={mat}>
-              <div className="overflow-hidden">
-                <img
-                  src="/images/tcc/tela-adicionar.png"
-                  alt=""
-                  width={1920}
-                  height={1032}
-                  loading="lazy"
-                  className={`${zoom} aspect-[1920/1032]`}
-                />
-              </div>
+              <TechSpace items={allSkills} className="aspect-[4/3] sm:aspect-[1920/1032]" />
             </div>
             <div className="mt-6 flex items-start justify-between gap-6">
               <div>
