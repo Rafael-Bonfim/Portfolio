@@ -37,7 +37,7 @@ export function LangToggle({ className = "" }) {
     <div
       role="group"
       aria-label={t.langLabel}
-      className={`relative flex items-center rounded-full border border-white/10 bg-zinc-900/70 p-0.5 font-mono text-[11px] font-medium backdrop-blur ${className}`}
+      className={`flex items-stretch border-2 border-current font-mono text-xs font-medium ${className}`}
     >
       {["en", "pt"].map((code) => (
         <button
@@ -45,8 +45,8 @@ export function LangToggle({ className = "" }) {
           type="button"
           onClick={() => setLang(code)}
           aria-pressed={lang === code}
-          className={`relative z-10 rounded-full px-2.5 py-1 uppercase tracking-wider transition-colors duration-200 ${
-            lang === code ? "bg-zinc-100 text-zinc-950" : "text-zinc-400 hover:text-zinc-100"
+          className={`min-h-8 px-2.5 uppercase tracking-wider ${
+            lang === code ? "bg-contrast text-surface" : "hover:bg-contrast hover:text-surface"
           }`}
         >
           {code}
