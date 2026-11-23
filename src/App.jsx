@@ -46,7 +46,6 @@ import ProjectsPage from "./pages/ProjectsPage";
 import Reveal from "./components/Reveal";
 import Spotlight from "./components/Spotlight";
 import InstagramIcon from "./components/InstagramIcon";
-import ScrollRevealText from "./components/ScrollRevealText";
 import AsciiBand from "./components/AsciiBand";
 import LangProvider, { LangToggle } from "./components/LangProvider";
 import { useLang } from "./i18n";
@@ -57,7 +56,7 @@ const INSTAGRAM = "https://www.instagram.com/r_lopess__/";
 const EMAIL = "rafa.lopes.bonfim@gmail.com";
 const GITHUB_ACADEMIC = "https://github.com/Projetos-Faculdade-Rafael";
 
-const sectionIds = ["home", "experience", "skills", "projects", "about", "contact"];
+const sectionIds = ["home", "experience", "skills", "projects", "contact"];
 
 const skillBlocks = [
   {
@@ -479,45 +478,6 @@ function Home() {
               </Spotlight>
             </Reveal>
           </div>
-        </section>
-
-        {/* ABOUT */}
-        <section id="about" className={section}>
-          <Reveal>
-            <SectionHeader title={t.about.title} />
-
-            <div className="grid items-center gap-14 md:grid-cols-[1fr_1.3fr] md:gap-20">
-              <div className="mx-auto w-full max-w-[400px]">
-                <div className="aspect-[4/5] -rotate-2 overflow-hidden rounded-[28px] border border-white/10 bg-zinc-900 shadow-[0_40px_80px_-30px_rgb(0_0_0/0.8)] transition-transform duration-500 hover:rotate-0">
-                  <img
-                    src="/rafael2.JPG"
-                    alt={t.about.photoAlt}
-                    width={400}
-                    height={500}
-                    loading="lazy"
-                    className="h-full w-full object-cover grayscale-[20%] transition-[filter] duration-500 hover:grayscale-0"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <ScrollRevealText
-                  text={t.about.p1}
-                  className="mb-6 text-2xl leading-snug font-medium tracking-tight text-pretty text-zinc-50 sm:text-3xl"
-                />
-                <p className="mb-10 max-w-[60ch] leading-relaxed text-pretty text-zinc-400">{t.about.p2}</p>
-
-                <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" className={`group ${secondaryButton}`}>
-                  <InstagramIcon size={16} />
-                  <span>{t.about.more}</span>
-                  <ArrowUpRight
-                    size={15}
-                    className="text-zinc-500 transition-[color,translate] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-zinc-300"
-                  />
-                </a>
-              </div>
-            </div>
-          </Reveal>
         </section>
 
         {/* CONTACT */}

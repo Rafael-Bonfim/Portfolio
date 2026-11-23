@@ -8,7 +8,6 @@ export const translations = {
       experience: "Experience",
       skills: "Skills",
       projects: "Projects",
-      about: "About",
       contact: "Contact",
     },
     menuOpen: "Open menu",
@@ -62,13 +61,6 @@ export const translations = {
       academic: "Academic works",
       academicDesc: "Coursework and academic projects from my studies.",
     },
-    about: {
-      title: "About me",
-      p1: "Multiplatform Software Development student at Fatec - Professor Jessen Vidal and IT technician, looking for new opportunities for learning and professional growth.",
-      p2: "Proficient in several modern technologies, looking for an opportunity to apply my knowledge and discover new paths in programming.",
-      more: "More about me",
-      photoAlt: "Rafael Lopes Bonfim",
-    },
     contact: {
       title: "Let’s talk?",
       intro: "Open to professional opportunities, partnerships and software projects.",
@@ -98,7 +90,6 @@ export const translations = {
       experience: "Experiência",
       skills: "Habilidades",
       projects: "Projetos",
-      about: "Sobre",
       contact: "Contato",
     },
     menuOpen: "Abrir menu",
@@ -151,13 +142,6 @@ export const translations = {
       mainDesc: "Projetos completos que desenvolvi e dos quais participei ativamente.",
       academic: "Trabalhos acadêmicos",
       academicDesc: "Atividades e projetos acadêmicos da minha graduação.",
-    },
-    about: {
-      title: "Sobre mim",
-      p1: "Estudante de Desenvolvimento de Software Multiplataforma na Fatec - Professor Jessen Vidal e técnico em informática, em busca de novas oportunidades de aprendizado e crescimento profissional.",
-      p2: "Tenho domínio de diversas tecnologias modernas e busco uma oportunidade para aplicar meus conhecimentos e descobrir novos caminhos na programação.",
-      more: "Mais sobre mim",
-      photoAlt: "Rafael Lopes Bonfim",
     },
     contact: {
       title: "Vamos conversar?",
