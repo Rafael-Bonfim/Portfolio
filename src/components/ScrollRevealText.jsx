@@ -4,7 +4,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 const MotionSpan = motion.span;
 
 function Word({ children, progress, range, still }) {
-  const opacity = useTransform(progress, range, [0.18, 1]);
+  const opacity = useTransform(progress, range, [0.35, 1]);
   return <MotionSpan style={{ opacity: still ? 1 : opacity }}>{children} </MotionSpan>;
 }
 

@@ -1,9 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #09090b;
-  --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, monospace;
+  /* Palette: night-navy surface, near-white contrast (text, lines, inverted blocks), muted text, black ink (node fills, frames, header/footer). Nothing else exists. */
+  --color-*: initial;
+  --color-surface: #0e1b33;
+  --color-contrast: #f4f6fa;
+  --color-muted: #b8c4da;
+  --color-ink: #0b0c10;
+
+  /* Shape rule: every corner is square (radius 0). The default radius scale is removed. */
+  --radius-*: initial;
+  --radius-node: 0px;
+
+  --font-sans: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Display type: Archivo at its narrowest width, black weight. */
+  --display-stretch: 62%;
 }
 
 :root {
@@ -14,84 +28,62 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   min-height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: var(--font-sans);
-  background-color: var(--color-canvas);
-  color: var(--color-zinc-100);
+  background-color: var(--color-surface);
+  color: var(--color-contrast);
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Film grain over everything */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 70;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+::selection {
+  background: var(--color-contrast);
+  color: var(--color-surface);
 }
 
-:where(a, button):focus-visible {
-  outline: 2px solid var(--color-zinc-400);
-  outline-offset: 3px;
+/* Condensed poster type for names and section titles. */
+@utility display {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 }
 
-/* Cursor-following glow, driven by --x/--y from Spotlight.jsx */
-.spotlight {
-  position: relative;
-  isolation: isolate;
-}
-.spotlight::before {
-  content: "";
+/* Small square connection point on a node edge. Fill follows the surface behind it. */
+@utility port {
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 300ms;
-  background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgb(255 255 255 / 0.04), transparent 60%);
-}
-.spotlight:hover::before {
-  opacity: 1;
+  width: 10px;
+  height: 10px;
+  border: 2px solid currentColor;
+  background: var(--port-fill, var(--color-surface));
+  pointer-events: none;
 }
 
-/* Infinite tech strip */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
+/* Focus: thick contrast outline with offset; inside the light (inverted) section it turns navy. */
+@layer base {
+  :where(a, button):focus-visible {
+    outline: 3px solid var(--color-contrast);
+    outline-offset: 3px;
   }
-}
-.marquee {
-  animation: marquee 45s linear infinite;
-}
-.marquee-mask {
-  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  .invert-zone :where(a, button):focus-visible {
+    outline-color: var(--color-surface);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .marquee {
-    animation: none;
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
   }
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-canvas);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-zinc-800);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-zinc-700);
 }
