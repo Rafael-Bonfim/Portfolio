@@ -44,7 +44,6 @@ import {
 import { FaJava, FaAws } from "react-icons/fa";
 import { TbBrandCSharp, TbApi, TbActivityHeartbeat } from "react-icons/tb";
 import ProjectsPage from "./pages/ProjectsPage";
-import ScrollRevealText from "./components/ScrollRevealText";
 import Wire from "./components/Wire";
 import TechSpace from "./components/TechSpace";
 import LangProvider, { LangToggle } from "./components/LangProvider";
@@ -59,7 +58,7 @@ const INSTAGRAM = "https://www.instagram.com/r_lopess__/";
 const EMAIL = "rafa.lopes.bonfim@gmail.com";
 const GITHUB_ACADEMIC = "https://github.com/Projetos-Faculdade-Rafael";
 
-const sectionIds = ["home", "experience", "skills", "projects", "about", "contact"];
+const sectionIds = ["home", "experience", "skills", "projects", "contact"];
 
 // Brand colors on the icons; monochrome brands (Next.js, Express, GitHub...) follow the text color.
 const skills = {
@@ -524,52 +523,6 @@ function Projects() {
   );
 }
 
-function About() {
-  const { t } = useLang();
-
-  return (
-    <section id="about" className={`scroll-mt-14 py-20 lg:py-32 ${gutter}`}>
-      <div className="grid gap-10 lg:grid-cols-12 lg:gap-x-10">
-        <h2 className={`${sectionTitle} lg:col-span-6 lg:col-start-7 lg:row-start-1`}>{t.about.title}</h2>
-
-        <div className="relative border-2 border-contrast bg-ink p-1.5 lg:col-span-5 lg:row-span-2 lg:row-start-1">
-          <img
-            src="/rafael2.JPG"
-            alt={t.about.photoAlt}
-            width={555}
-            height={837}
-            loading="lazy"
-            className="block aspect-[4/5] w-full object-cover"
-          />
-          <Port at="right" className="hidden lg:block" />
-          <Port at="bottom" className="lg:hidden" />
-        </div>
-
-        <div className="lg:col-span-6 lg:col-start-7 lg:row-start-2 lg:self-end">
-          <ScrollRevealText
-            text={t.about.p1}
-            className="text-[clamp(1.5rem,2.5vw,2.25rem)] leading-[1.2] font-medium tracking-tight text-pretty"
-          />
-          <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-pretty text-muted">{t.about.p2}</p>
-
-          <a
-            href={INSTAGRAM}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`relative mt-10 inline-flex min-h-12 items-center gap-3 border-2 border-contrast bg-ink px-5 py-3 font-semibold ${invertOnHover}`}
-          >
-            <SiInstagram size={18} aria-hidden="true" />
-            {t.about.more}
-            <ArrowUpRight size={18} aria-hidden="true" />
-            <Port at="left" />
-            <Port at="right" />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Contact() {
   const { t } = useLang();
   const [copied, setCopied] = useState(false);
@@ -653,7 +606,6 @@ function Home() {
         <Experience />
         <Skills />
         <Projects />
-        <About />
         <Contact />
       </main>
 
